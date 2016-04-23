@@ -67,7 +67,7 @@ namespace Web.Areas.Admin.Controllers
                 vm.PlanType.PlanTypeName = new MultiLangString(vm.PlanTypeName,
                    CultureHelper.GetCurrentNeutralUICulture(), vm.PlanTypeName,
                    nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeName));
-                //TODO lisada kirjelduse tõlke lisamine
+                vm.PlanType.PlanTypeDescription = new MultiLangString(vm.Description, CultureHelper.GetCurrentNeutralUICulture(), vm.Description, nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeDescription));
 
                 _uow.PlanTypes.Add(vm.PlanType);
                 _uow.Commit();
@@ -110,7 +110,9 @@ namespace Web.Areas.Admin.Controllers
                 vm.PlanType.PlanTypeName = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeId);
                 vm.PlanType.PlanTypeName.SetTranslation(vm.PlanTypeName, CultureHelper.GetCurrentNeutralUICulture(),
                     nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeName));
-                //TODO lisada kirjelduse tõlke muutmine
+                vm.PlanType.PlanTypeDescription = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeId);
+                vm.PlanType.PlanTypeDescription.SetTranslation(vm.Description, CultureHelper.GetCurrentNeutralUICulture(),
+    nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeDescription));
                 _uow.PlanTypes.Update(vm.PlanType);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));

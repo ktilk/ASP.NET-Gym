@@ -11,7 +11,6 @@ namespace Domain
     {
         public int PersonRoleInPlanId { get; set; }
 
-        //public string RoleName { get; set; }
         [ForeignKey(nameof(RoleName))]
         public int? RoleNameId { get; set; }
         public virtual MultiLangString RoleName { get; set; }

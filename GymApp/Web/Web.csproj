@@ -2062,6 +2062,8 @@
     <Content Include="Areas\Admin\Views\PlanTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\PlanTypes\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ExerciseTypes\_CreateEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\PlanTypes\_CreateEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\PersonRoleInPlans\_CreateEdit.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

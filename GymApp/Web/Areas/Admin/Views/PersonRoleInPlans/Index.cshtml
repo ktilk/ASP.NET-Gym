@@ -12,19 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RoleName.Value)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.RoleName)
         </th>
         <th></th>
     </tr>
@@ -32,19 +20,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RoleName.Value)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
+            @item.RoleName.Translate()
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PersonRoleInPlanId }) |

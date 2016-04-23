@@ -12,22 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlanTypeDescription.Value)
+            @Html.DisplayNameFor(model => model.PlanTypeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanTypeName.Value)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.PlanTypeDescription)
         </th>
         <th></th>
     </tr>
@@ -35,27 +23,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanTypeDescription.Value)
+            @item.PlanTypeName.Translate()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanTypeName.Value)
+            @item.PlanTypeDescription.Translate()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreatedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlanTypeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PlanTypeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlanTypeId })
+            @Html.ActionLink("Edit", "Edit", new {id = item.PlanTypeId}) |
+            @Html.ActionLink("Details", "Details", new {id = item.PlanTypeId}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.PlanTypeId})
         </td>
     </tr>
 }
