@@ -10,10 +10,11 @@ namespace Web.ViewModels
     public class ExerciseIndexViewModel
     {
         public IPagedList<Exercise> Exercises { get; set; }
-
         public int? PageNumber { get; set; }
         public int? PageSize { get; set; }
         public string SortProperty { get; set; }
         public string Filter { get; set; }
     }
+    //TODO lisada exercisetype dropdown list
+    //TODO luua create edit viewmodel
 }

@@ -237,3 +237,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/GymApp/Web/Controllers/HelperDemoController.cs
+/GymApp/Web/ViewModels/HelperDemoViewModels.cs
+/GymApp/Web/Views/HelperDemo
