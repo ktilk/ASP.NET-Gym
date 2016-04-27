@@ -1,14 +1,42 @@
-﻿@model Web.ViewModels.ExerciseIndexViewModel
+﻿@using PagedList.Mvc
+@model Web.ViewModels.ExerciseIndexViewModel
 
 @{
     ViewBag.Title = "Index";
+
+    Func<string, string, string> getSortProperty = (propertyName, currentSortProperty) => currentSortProperty == propertyName ? "_" + propertyName : propertyName;
+
+    Func<string, string, string> getSortIcon = (propertyName, currentSortProperty) => currentSortProperty == propertyName ? "fa-sort-up" : currentSortProperty == "_" + propertyName ? "fa-sort-down" : "fa-sort";
 }
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        @using (Html.BeginForm("Index", "Exercises", FormMethod.Get))
+        {
+            @Html.HiddenFor(model => model.SortProperty)
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Filter, new { @class = "control-label col-md-1" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Filter, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Filter" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+        @Html.PagedListPager(Model.Exercises, page => Url.Action("Index", new { PageNumber = page }))
+        <p>
+            Total: @Model.Exercises.TotalItemCount
+        </p>
+    </div>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -38,7 +66,7 @@
 @foreach (var item in Model.Exercises) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ExerciseType.ExerciseTypeName)
+            @Html.DisplayFor(modelItem => item.ExerciseType.ExerciseTypeName.Value)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExerciseName)

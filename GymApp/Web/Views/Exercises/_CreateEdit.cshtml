@@ -1,42 +1,49 @@
-﻿@using HtmlHelpers
-@using Web.Helpers
-@model Domain.Exercise
+﻿@model Web.ViewModels.ExerciseCreateEditViewModel
+
 <div class="form-group">
-    @Html.LabelFor(model => model.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Exercise.ExerciseTypeId, htmlAttributes: new {@class = "control-label col-md-2"})
     <div class="col-md-10">
-        @Html.EditorFor(model => model.ExerciseName, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.ExerciseName, "", new { @class = "text-danger" })
+        @Html.DropDownListFor(model => model.Exercise.ExerciseTypeId, Model.ExerciseTypeSelectList, "-- Select --", new {@class = "form-control"})
+        @Html.ValidationMessageFor(model => model.Exercise.ExerciseTypeId, "", new {@class = "text-danger"})
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Exercise.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Exercise.ExerciseName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Exercise.ExerciseName, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Instructions, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Exercise.Description, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.Instructions, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Instructions, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Exercise.Description, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Exercise.Description, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.VideoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Exercise.Instructions, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.VideoUrl, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.VideoUrl, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Exercise.Instructions, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Exercise.Instructions, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Exercise.VideoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.EditorFor(model => model.Rating, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+        @Html.EditorFor(model => model.Exercise.VideoUrl, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Exercise.VideoUrl, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Exercise.Rating, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Exercise.Rating, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Exercise.Rating, "", new { @class = "text-danger" })
     </div>
 </div>

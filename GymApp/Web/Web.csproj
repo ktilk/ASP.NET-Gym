@@ -306,7 +306,7 @@
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ContactViewModels.cs" />
-    <Compile Include="ViewModels\ExerciseIndexViewModel.cs" />
+    <Compile Include="ViewModels\ExerciseViewModels.cs" />
     <Compile Include="ViewModels\HomeViewModels.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\PersonViewModels.cs" />

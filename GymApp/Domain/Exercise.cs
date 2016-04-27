@@ -13,6 +13,7 @@ namespace Domain
 
         public int ExerciseTypeId { get; set; }
         public virtual ExerciseType ExerciseType { get; set; }
+
         [Required]
         [MaxLength(128, ErrorMessageResourceName = "ExerciseNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
         [MinLength(1, ErrorMessageResourceName = "ExerciseNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]

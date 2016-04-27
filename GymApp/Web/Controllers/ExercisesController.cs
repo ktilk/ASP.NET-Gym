@@ -10,6 +10,7 @@ using DAL;
 using DAL.Interfaces;
 using Domain;
 using PagedList;
+using Web.Areas.Admin.ViewModels;
 using Web.ViewModels;
 
 namespace Web.Controllers
@@ -17,7 +18,6 @@ namespace Web.Controllers
     [Authorize]
     public class ExercisesController : BaseController
     {
-        //private DataBaseContext db = new DataBaseContext();
         private readonly IUOW _uow;
 
         public ExercisesController(IUOW uow)
@@ -36,6 +36,7 @@ namespace Web.Controllers
             vm.PageSize = vm.PageSize ?? 25;
 
             var res = _uow.Exercises.GetAllWithFilter(vm.Filter, vm.SortProperty, vm.PageNumber.Value-1, vm.PageSize.Value, out totalExerciseCount, out realSortProperty);
+            //var res = _uow.Exercises.All;
 
             vm.SortProperty = realSortProperty;
 
@@ -62,7 +63,9 @@ namespace Web.Controllers
         // GET: Exercises/Create
         public ActionResult Create()
         {
-            return View();
+            var vm = new ExerciseCreateEditViewModel();
+            vm.ExerciseTypeSelectList = new SelectList(_uow.ExerciseTypes.All.Select(e => new {e.ExerciseTypeId, ExerciseTypeName = e.ExerciseTypeName.Translate()}).ToList(), nameof(ExerciseType.ExerciseTypeId), nameof(ExerciseType.ExerciseTypeName));
+            return View(vm);
         }
 
         // POST: Exercises/Create
@@ -70,16 +73,16 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ExerciseId,ExerciseTypeId,ExerciseName,Description,Instructions,VideoUrl,Rating,DateCreated,CreatedAtDT,CreatedBy,ModifiedAtDT,ModifiedBy")] Exercise exercise)
+        public ActionResult Create(ExerciseCreateEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _uow.Exercises.Add(exercise);
+                _uow.Exercises.Add(vm.Exercise);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));
             }
-
-            return View(exercise);
+            vm.ExerciseTypeSelectList = new SelectList(_uow.ExerciseTypes.All.Select(e => new { e.ExerciseTypeId, ExerciseTypeName = e.ExerciseTypeName.Translate() }).ToList(), nameof(ExerciseType.ExerciseTypeId), nameof(ExerciseType.ExerciseTypeName), vm.Exercise.ExerciseTypeId);
+            return View(vm);
         }
 
         // GET: Exercises/Edit/5
@@ -89,13 +92,16 @@ namespace Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = _uow.Exercises.GetById(id);
+            var exercise = _uow.Exercises.GetById(id);
             if (exercise == null)
             {
                 return HttpNotFound();
             }
-            
-            return View(exercise);
+            var vm = new ExerciseCreateEditViewModel();
+            vm.Exercise = exercise;
+            vm.ExerciseTypeSelectList = new SelectList(_uow.ExerciseTypes.All.Select(e => new { e.ExerciseTypeId, ExerciseTypeName = e.ExerciseTypeName.Translate() }).ToList(), nameof(ExerciseType.ExerciseTypeId), nameof(ExerciseType.ExerciseTypeName), vm.Exercise.ExerciseTypeId);
+
+            return View(vm);
         }
 
         // POST: Exercises/Edit/5
@@ -103,16 +109,17 @@ namespace Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ExerciseId,ExerciseTypeId,ExerciseName,Description,Instructions,VideoUrl,Rating,DateCreated,CreatedAtDT,CreatedBy,ModifiedAtDT,ModifiedBy")] Exercise exercise)
+        public ActionResult Edit(ExerciseCreateEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _uow.Exercises.Update(exercise);
+                _uow.Exercises.Update(vm.Exercise);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));
             }
-            
-            return View(exercise);
+            vm.ExerciseTypeSelectList = new SelectList(_uow.ExerciseTypes.All.Select(e => new { e.ExerciseTypeId, ExerciseTypeName = e.ExerciseTypeName.Translate() }).ToList(), nameof(ExerciseType.ExerciseTypeId), nameof(ExerciseType.ExerciseTypeName), vm.Exercise.ExerciseTypeId);
+
+            return View(vm);
         }
 
         // GET: Exercises/Delete/5
@@ -135,7 +142,6 @@ namespace Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Exercise exercise = _uow.Exercises.GetById(id);
             _uow.Exercises.Delete(id);
             _uow.Commit();
             return RedirectToAction(nameof(Index));

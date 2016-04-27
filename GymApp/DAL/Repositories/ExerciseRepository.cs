@@ -24,8 +24,8 @@ namespace DAL.Repositories
             realSortProperty = sortProperty;
             filter = filter?.ToLower() ?? "";
 
-            //var res = DbSet.Where(n => n.ExerciseId > 0);
-            var res = Enumerable.Empty<Exercise>().AsQueryable();
+            var res = DbSet.AsQueryable();
+            //var res = Enumerable.Empty<Exercise>().AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(filter))
             {
