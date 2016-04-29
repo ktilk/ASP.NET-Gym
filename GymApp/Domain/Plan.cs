@@ -31,12 +31,6 @@ namespace Domain
         public int PlanTypeId { get; set; }
         public virtual PlanType PlanType { get; set; }
 
-        [DataType(DataType.DateTime)]
-        public DateTime DateCreated { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime? DateClosed { get; set; }
-
         public string Duration { get; set; }
 
         public virtual List<PersonInPlan> People { get; set; }

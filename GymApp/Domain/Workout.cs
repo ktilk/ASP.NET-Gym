@@ -14,11 +14,15 @@ namespace Domain
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        public string Duration { get; set; }
+        [DataType(DataType.Time)]
+        public DateTime StartTime { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime EndTime { get; set; }
 
         public int PlanId { get; set; }
         public virtual Plan Plan { get; set; }
 
-        public virtual List<ExerciseInWorkout> ExercisesWorkouts { get; set; }
+        public virtual List<ExerciseInWorkout> ExercisesInWorkouts { get; set; }
     }
 }

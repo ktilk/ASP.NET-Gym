@@ -31,9 +31,6 @@ namespace Domain
         [Range(0, 10, ErrorMessageResourceName = "RatingOutOfBoundsError", ErrorMessageResourceType = typeof(Resources.Domain))]
         public int? Rating { get; set; }
 
-        [DataType(DataType.DateTime)]
-        public DateTime DateCreated { get; set; }
-
         public virtual List<ExerciseInWorkout> ExercisesInWorkouts { get; set; }
     }
 }

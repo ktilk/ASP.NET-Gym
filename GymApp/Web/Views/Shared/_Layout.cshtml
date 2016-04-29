@@ -46,6 +46,14 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Training<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Plans", "Index", "Plans", new {area = ""}, null)</li>
+                                <li>@Html.ActionLink("Workouts", "Index", "Workouts", new {area = ""}, null)</li>
+                                <li>@Html.ActionLink("Exercises", "Index", "Exercises", new { area = "" }, null)</li>
+                            </ul>
+                        </li>
                         <li>@Html.ActionLink("Persons", "Index", "Persons", new { area = "" }, null)</li>
                         <li>@Html.ActionLink("Contacts", "Index", "Contacts", new { area = "" }, null)</li>
                     }
