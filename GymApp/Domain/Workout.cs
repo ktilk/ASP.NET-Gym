@@ -11,6 +11,13 @@ namespace Domain
     {
         public int WorkoutId { get; set; }
 
+        [Required]
+        [MaxLength(128, ErrorMessageResourceName = "WorkoutNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
+        [MinLength(1, ErrorMessageResourceName = "WorkoutNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
+        public string WorkoutName { get; set; }
+
+        public bool Tracked { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 

@@ -14,7 +14,7 @@ using Web.ViewModels;
 
 namespace Web.Controllers
 {
-    public class PlansController : Controller
+    public class PlansController : BaseController
     {
         //private DataBaseContext db = new DataBaseContext();
         private readonly IUOW _uow;

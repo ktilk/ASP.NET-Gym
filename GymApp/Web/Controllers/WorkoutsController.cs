@@ -26,7 +26,7 @@ namespace Web.Controllers
         // GET: Workouts
         public ActionResult Index(WorkoutIndexViewModel vm)
         {
-            vm.Workouts = _uow.Workouts.All;
+            vm.Workouts = _uow.Workouts.All.Where(w => w.Tracked == false).ToList();
             return View(vm);
         }
 
@@ -50,6 +50,7 @@ namespace Web.Controllers
         {
             var vm = new WorkoutCreateEditViewModel();
             vm.PlansSelectList = new SelectList(_uow.Plans.All.Select(p => new {p.PlanId, PlanName = p.PlanName.Value}).ToList(), nameof(Plan.PlanId), nameof(Plan.PlanName));
+            vm.ExercisesSelectList = new SelectList(_uow.Exercises.All.Select(p => new { p.ExerciseId, ExerciseName = p.ExerciseName }).ToList(), nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
             return View(vm);
         }
 
@@ -62,12 +63,15 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                vm.Workout.Tracked = false; // this workout row is not tracked, but created(new trackable workout)
                 _uow.Workouts.Add(vm.Workout);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));
             }
 
             vm.PlansSelectList = new SelectList(_uow.Plans.All.Select(p => new { p.PlanId, PlanName = p.PlanName.Value }).ToList(), nameof(Plan.PlanId), nameof(Plan.PlanName), vm.Workout.PlanId);
+            vm.ExercisesSelectList = new SelectList(_uow.Exercises.All.Select(p => new { p.ExerciseId, ExerciseName = p.ExerciseName }).ToList(), nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName), vm.Exercise.ExerciseId);
+
             return View(vm);
         }
 

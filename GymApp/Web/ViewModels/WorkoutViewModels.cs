@@ -10,7 +10,9 @@ namespace Web.ViewModels
     public class WorkoutCreateEditViewModel
     {
         public Workout Workout { get; set; }
-        public SelectList ExercisesInWorkoutSelectList { get; set; }
+        public string WorkoutName { get; set; }
+        public Exercise Exercise { get; set; }
+        public SelectList ExercisesSelectList { get; set; }
         public SelectList PlansSelectList { get; set; }
     }
 

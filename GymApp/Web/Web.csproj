@@ -294,6 +294,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
     <Compile Include="Controllers\PlansController.cs" />
+    <Compile Include="Controllers\TrackWorkoutsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WorkoutsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -321,6 +322,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\PersonViewModels.cs" />
     <Compile Include="ViewModels\PlanViewModels.cs" />
+    <Compile Include="ViewModels\TrackWorkoutViewModels.cs" />
     <Compile Include="ViewModels\WorkoutViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2243,6 +2245,11 @@
     <Content Include="Views\Plans\Edit.cshtml" />
     <Content Include="Views\Plans\Index.cshtml" />
     <Content Include="Views\Plans\_CreateEdit.cshtml" />
+    <Content Include="Views\TrackWorkouts\Create.cshtml" />
+    <Content Include="Views\TrackWorkouts\Delete.cshtml" />
+    <Content Include="Views\TrackWorkouts\Details.cshtml" />
+    <Content Include="Views\TrackWorkouts\Edit.cshtml" />
+    <Content Include="Views\TrackWorkouts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Views\Shared\" />

@@ -347,5 +347,14 @@ namespace Resources {
                 return ResourceManager.GetString("WeightOutOfBoundsError", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exercise name is too long..
+        /// </summary>
+        public static string WorkoutNameLengthError {
+            get {
+                return ResourceManager.GetString("WorkoutNameLengthError", resourceCulture);
+            }
+        }
     }
 }

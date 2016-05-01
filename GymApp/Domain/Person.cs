@@ -39,7 +39,9 @@ namespace Domain
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
-        [DataType(DataType.Time)]
+        [Display(Name = nameof(Resources.Domain.Person_Time2), ResourceType = typeof(Resources.Domain))]
+        [DataType(DataType.Time, ErrorMessageResourceName = "FieldMustBeDataTypeTime", ErrorMessageResourceType = typeof(Resources.Common), ErrorMessage = null)]
+        [Required(ErrorMessageResourceName = "FieldIsRequired", ErrorMessageResourceType = typeof(Resources.Common))]
         public DateTime Time { get; set; }
 
 

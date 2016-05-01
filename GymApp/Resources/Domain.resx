@@ -213,4 +213,7 @@
   <data name="WeightOutOfBoundsError" xml:space="preserve">
     <value>Weight is out of bounds.</value>
   </data>
+  <data name="WorkoutNameLengthError" xml:space="preserve">
+    <value>Exercise name is too long.</value>
+  </data>
 </root>

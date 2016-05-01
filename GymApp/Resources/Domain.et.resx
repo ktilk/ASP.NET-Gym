@@ -204,4 +204,7 @@
   <data name="WeightOutOfBoundsError" xml:space="preserve">
     <value>Raskus on piiridest väljas</value>
   </data>
+  <data name="WorkoutNameLengthError" xml:space="preserve">
+    <value>Treeningu nimi on liiga pikk.</value>
+  </data>
 </root>

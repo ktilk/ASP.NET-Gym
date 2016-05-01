@@ -4,11 +4,12 @@ using System.Web.Mvc;
 using DAL.Interfaces;
 using Domain.Identity;
 using Microsoft.Owin.Security;
+using Web.Controllers;
 
 namespace Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly NLog.ILogger _logger;
         private readonly string _instanceId = Guid.NewGuid().ToString();

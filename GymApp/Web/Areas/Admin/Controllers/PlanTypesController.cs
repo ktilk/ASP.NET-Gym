@@ -10,12 +10,13 @@ using DAL;
 using DAL.Interfaces;
 using Domain;
 using Web.Areas.Admin.ViewModels;
+using Web.Controllers;
 using Web.Helpers;
 
 namespace Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class PlanTypesController : Controller
+    public class PlanTypesController : BaseController
     {
         //private DataBaseContext db = new DataBaseContext();
         private readonly IUOW _uow;
@@ -107,10 +108,10 @@ namespace Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                vm.PlanType.PlanTypeName = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeId);
+                vm.PlanType.PlanTypeName = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeNameId);
                 vm.PlanType.PlanTypeName.SetTranslation(vm.PlanTypeName, CultureHelper.GetCurrentNeutralUICulture(),
                     nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeName));
-                vm.PlanType.PlanTypeDescription = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeId);
+                vm.PlanType.PlanTypeDescription = _uow.MultiLangStrings.GetById(vm.PlanType.PlanTypeDescriptionId);
                 vm.PlanType.PlanTypeDescription.SetTranslation(vm.Description, CultureHelper.GetCurrentNeutralUICulture(),
     nameof(vm.PlanType) + "." + vm.PlanType.PlanTypeId + "." + nameof(vm.PlanType.PlanTypeDescription));
                 _uow.PlanTypes.Update(vm.PlanType);

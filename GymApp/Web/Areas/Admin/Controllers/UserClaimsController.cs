@@ -5,11 +5,12 @@ using DAL.Interfaces;
 using Domain.Identity;
 using Microsoft.Owin.Security;
 using NLog;
+using Web.Controllers;
 
 namespace Web.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class UserClaimsController : Controller
+    public class UserClaimsController : BaseController
     {
         private readonly NLog.ILogger _logger;
         private readonly string _instanceId = Guid.NewGuid().ToString();
