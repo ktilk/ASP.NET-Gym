@@ -55,6 +55,14 @@ namespace Web
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                    "~/Scripts/app/app.js"));
 
+            bundles.Add(new StyleBundle("~/Content/niceadmincss").Include(
+                
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/niceadminjs").Include(
+                
+                ));
+
             BundleTable.EnableOptimizations = false;
         }
     }
