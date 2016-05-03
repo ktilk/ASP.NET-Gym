@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@titleTag</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/niceadmincss")
     @Scripts.Render("~/bundles/modernizr")
     <script type="text/javascript">
         var currentCultureCode = '@currentCultureCode';
@@ -119,6 +120,8 @@
     @Scripts.Render("~/Scripts/tinymce/tinymce.min.js")
     @Scripts.Render("~/bundles/app")
 
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/niceadminjs")
+
+@RenderSection("scripts", required: false)
 </body>
 </html>
