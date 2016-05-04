@@ -49,18 +49,40 @@ namespace Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/bower_components/bootstrap/dist/css/bootstrap.css",
                 "~/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css",
-                "~/Content/font-awesome-4.6.1/css/font-awesome.css",
-                "~/Content/site.css"));
+                "~/Content/font-awesome-4.6.1/css/font-awesome.css"
+                // "~/Content/site.css"
+                ));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                    "~/Scripts/app/app.js"));
 
             bundles.Add(new StyleBundle("~/Content/niceadmincss").Include(
-                
+                "~/Content/NiceAdmin/css/bootstrap.min.css",
+                "~/Content/NiceAdmin/css/bootstrap-theme.css",
+                "~/Content/NiceAdmin/css/elegant-icons-style.css",
+                "~/Content/NiceAdmin/css/font-awesome.min.css",
+                "~/Content/NiceAdmin/css/owl.carousel.css",
+                "~/Content/NiceAdmin/css/widgets.css",
+                "~/Content/NiceAdmin/css/style.css",
+                "~/Content/NiceAdmin/css/style-responsive.css",
+                "~/Content/NiceAdmin/css/xcharts.min.css",
+                "~/Content/NiceAdmin/css/jquery-ui-1.10.4.min.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/niceadminjs").Include(
-                
+                "~/Scripts/NiceAdmin/jquery.js",
+                "~/Scripts/NiceAdmin/jquery-ui-1.10.4.min.js",
+                "~/Scripts/NiceAdmin/jquery-ui-1.9.2.custom.min.js",
+                "~/Scripts/NiceAdmin/bootstrap.min.js",
+                "~/Scripts/NiceAdmin/jquery.scrollTo.min.js",
+                "~/Scripts/NiceAdmin/jquery.nicescroll.js",
+                "~/Scripts/NiceAdmin/scripts.js",
+                "~/Scripts/NiceAdmin/jquery.autosize.min.js",
+                "~/Scripts/NiceAdmin/jquery.placeholder.min.js",
+                "~/Scripts/NiceAdmin/gdp-data.js",
+                "~/Scripts/NiceAdmin/morris.min.js",
+                "~/Scripts/NiceAdmin/sparklines.js",
+                "~/Scripts/NiceAdmin/jquery.slimscroll.min.js"
                 ));
 
             BundleTable.EnableOptimizations = false;

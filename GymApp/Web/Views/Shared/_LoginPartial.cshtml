@@ -17,8 +17,27 @@
     {
         @Html.AntiForgeryToken()
 
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav pull-right top-menu">
             <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="username">@User.Identity.GetUserName()</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li class="eborder-top">
+                        <a href="@Url.Action("Index", "Manage", new { area = ""})"><i class="icon_profile"></i>@Resources.Common.ManageAccount</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                    </li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon_key"></i>@Resources.Common.LogOff</a>
+                    </li>
+                </ul>
+            </li>
+
+            @*<li class="dropdown">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">
                     @User.Identity.GetUserName() <b class="caret"></b>
                 </a>
@@ -28,7 +47,7 @@
                         <a href="javascript:document.getElementById('logoutForm').submit()">@Resources.Common.LogOff</a>
                     </li>
                 </ul>
-            </li>
+            </li>*@
             <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
                 @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
             </li>
@@ -40,7 +59,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav pull-right top-menu">
         <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
             @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
         </li>
