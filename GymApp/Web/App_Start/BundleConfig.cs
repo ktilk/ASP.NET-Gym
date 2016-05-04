@@ -70,13 +70,20 @@ namespace Web
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/niceadminjs").Include(
-                "~/Scripts/NiceAdmin/jquery.js",
+                //"~/Scripts/NiceAdmin/jquery.js",
                 "~/Scripts/NiceAdmin/jquery-ui-1.10.4.min.js",
+                "~/Scripts/NiceAdmin/jquery-1.8.3.min.js",
                 "~/Scripts/NiceAdmin/jquery-ui-1.9.2.custom.min.js",
                 "~/Scripts/NiceAdmin/bootstrap.min.js",
                 "~/Scripts/NiceAdmin/jquery.scrollTo.min.js",
                 "~/Scripts/NiceAdmin/jquery.nicescroll.js",
+                "~/Scripts/NiceAdmin/jquery.rateit.min.js",
+                "~/Scripts/NiceAdmin/jquery.customSelect.min.js",
                 "~/Scripts/NiceAdmin/scripts.js",
+                "~/Scripts/NiceAdmin/sparkline-chart.js",
+                "~/Scripts/NiceAdmin/jquery-jvectormap-1.2.2.min.js",
+                "~/Scripts/NiceAdmin/jquery-jvectormap-world-mill-en.js",
+                "~/Scripts/NiceAdmin/xcharts.min.js",
                 "~/Scripts/NiceAdmin/jquery.autosize.min.js",
                 "~/Scripts/NiceAdmin/jquery.placeholder.min.js",
                 "~/Scripts/NiceAdmin/gdp-data.js",
@@ -84,6 +91,8 @@ namespace Web
                 "~/Scripts/NiceAdmin/sparklines.js",
                 "~/Scripts/NiceAdmin/jquery.slimscroll.min.js"
                 ));
+
+            // bundles.Add(new ScriptBundle("~/bundles/niceadminjs").IncludeDirectory("~/Scripts/NiceAdmin", "", false));
 
             BundleTable.EnableOptimizations = false;
         }

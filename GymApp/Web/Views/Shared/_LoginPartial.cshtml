@@ -29,25 +29,13 @@
                         <a href="@Url.Action("Index", "Manage", new { area = ""})"><i class="icon_profile"></i>@Resources.Common.ManageAccount</a>
                     </li>
                     <li>
-                        <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                        <a href="#"><i class="icon_mail_alt"></i> My Contacts</a>
                     </li>
                     <li>
                         <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon_key"></i>@Resources.Common.LogOff</a>
                     </li>
                 </ul>
             </li>
-
-            @*<li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                    @User.Identity.GetUserName() <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>@Html.ActionLink(@Resources.Common.ManageAccount, "Index", new {area = "", controller = "Manage"})</li>
-                    <li>
-                        <a href="javascript:document.getElementById('logoutForm').submit()">@Resources.Common.LogOff</a>
-                    </li>
-                </ul>
-            </li>*@
             <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
                 @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
             </li>
