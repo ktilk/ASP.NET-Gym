@@ -85,14 +85,14 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="@Url.Action("Index", "ContactTypes", new {area = ""}, null)">Contact types</a></li>
-                                <li><a class="" href="@Url.Action("Index", "ExerciseTypes", new {area = ""}, null)">Exercise types</a></li>
-                                <li><a class="" href="@Url.Action("Index", "PlanTypes", new {area = ""}, null)">Plan types</a></li>
-                                <li><a class="" href="@Url.Action("Index", "PersonRoleInPlans", new {area = ""}, null)">Person roles in plans</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Articles", new {area = ""}, null)">Articles</a></li>
-                                <li><a class="" href="@Url.Action("Index", "MultiLangStrings", new {area = ""}, null)">MultiLangStrings</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Translations", new {area = ""}, null)">Translations</a></li>
-                                <li><a class="" href="@Url.Action("Index", "SystemLog", new {area = ""}, null)">System logs</a></li>
+                                <li><a class="" href="@Url.Action("Index", "ContactTypes", new {area = "Admin"}, null)">Contact types</a></li>
+                                <li><a class="" href="@Url.Action("Index", "ExerciseTypes", new {area = "Admin"}, null)">Exercise types</a></li>
+                                <li><a class="" href="@Url.Action("Index", "PlanTypes", new {area = "Admin"}, null)">Plan types</a></li>
+                                <li><a class="" href="@Url.Action("Index", "PersonRoleInPlans", new {area = "Admin"}, null)">Person roles in plans</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Articles", new {area = "Admin"}, null)">Articles</a></li>
+                                <li><a class="" href="@Url.Action("Index", "MultiLangStrings", new {area = "Admin"}, null)">MultiLangStrings</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Translations", new {area = "Admin"}, null)">Translations</a></li>
+                                <li><a class="" href="@Url.Action("Index", "SystemLog", new {area = "Admin"}, null)">System logs</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
@@ -102,11 +102,11 @@
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
                             <ul class="sub">
-                                <li><a class="" href="@Url.Action("Index", "Users", new {area = ""}, null)">Users</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Roles", new {area = ""}, null)">Roles</a></li>
-                                <li><a class="" href="@Url.Action("Index", "UserRoles", new {area = ""}, null)">Users in Roles</a></li>
-                                <li><a class="" href="@Url.Action("Index", "UserLogins", new {area = ""}, null)">Logins</a></li>
-                                <li><a class="" href="@Url.Action("Index", "UserClaims", new {area = ""}, null)">Claims</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Users", new {area = "Admin"}, null)">Users</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Roles", new {area = "Admin"}, null)">Roles</a></li>
+                                <li><a class="" href="@Url.Action("Index", "UserRoles", new {area = "Admin"}, null)">Users in Roles</a></li>
+                                <li><a class="" href="@Url.Action("Index", "UserLogins", new {area = "Admin"}, null)">Logins</a></li>
+                                <li><a class="" href="@Url.Action("Index", "UserClaims", new {area = "Admin"}, null)">Claims</a></li>
                             </ul>
                         </li>
                     }
@@ -163,6 +163,7 @@
     @Scripts.Render("~/bundles/app")
 
     @Scripts.Render("~/bundles/niceadminjs")
+
 
     @RenderSection("scripts", required: false)
 

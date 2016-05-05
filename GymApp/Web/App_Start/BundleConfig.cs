@@ -92,7 +92,7 @@ namespace Web
                 "~/Scripts/NiceAdmin/jquery.slimscroll.min.js"
                 ));
 
-            // bundles.Add(new ScriptBundle("~/bundles/niceadminjs").IncludeDirectory("~/Scripts/NiceAdmin", "", false));
+            bundles.Add(new ScriptBundle("~/bundles/niceadminjsall").IncludeDirectory("~/Scripts/NiceAdmin", "", false));
 
             BundleTable.EnableOptimizations = false;
         }
