@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Identity;
 
 namespace Domain
 {
@@ -33,7 +34,7 @@ namespace Domain
 
         public string Duration { get; set; }
 
-        public virtual List<PersonInPlan> People { get; set; }
-        public virtual List<Workout> Workouts { get; set; }
+        public virtual List<UserInPlan> Users { get; set; }
+        public virtual List<WorkoutInPlan> WorkoutsInPlans { get; set; }
     }
 }

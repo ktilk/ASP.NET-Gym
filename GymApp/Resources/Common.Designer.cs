@@ -79,15 +79,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Competitions.
-        /// </summary>
-        public static string Competitions {
-            get {
-                return ResourceManager.GetString("Competitions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contacts.
         /// </summary>
         public static string Contacts {
@@ -237,15 +228,6 @@ namespace Resources {
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Participations.
-        /// </summary>
-        public static string Participations {
-            get {
-                return ResourceManager.GetString("Participations", resourceCulture);
             }
         }
         

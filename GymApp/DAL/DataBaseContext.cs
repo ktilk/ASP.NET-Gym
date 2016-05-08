@@ -57,18 +57,16 @@ namespace DAL
 
         public IDbSet<Person> Persons { get; set; }
         public IDbSet<Contact> Contacts { get; set; }
-        public IDbSet<Competition> Competitions { get; set; }
         public IDbSet<ContactType> ContactTypes { get; set; }
         public IDbSet<Exercise> Exercises { get; set; }
-        public IDbSet<ExerciseInWorkout> ExercisesInWorkouts { get; set; }
+        public IDbSet<ExerciseInWorkout> ExerciseInWorkouts { get; set; }
         public IDbSet<ExerciseType> ExerciseTypes { get; set; }
-        public IDbSet<Participation> Participations { get; set; }
         public IDbSet<Plan> Plans { get; set; }
         public IDbSet<PlanType> PlanTypes { get; set; }
         public IDbSet<Workout> Workouts { get; set; }
-        public IDbSet<PersonInPlan> PeopleInPlans { get; set; }
-        public IDbSet<PersonRoleInPlan> PersonRoleInPlans { get; set; }
-
+        public IDbSet<WorkoutInPlan> WorkoutInPlans { get; set; }
+        public IDbSet<UserInPlan> UserInPlans { get; set; }
+        public IDbSet<UserRoleInPlan> UserRoleInPlans { get; set; }
         public IDbSet<Article> Articles { get; set; }
         public IDbSet<MultiLangString> MultiLangStrings { get; set; }
         public IDbSet<Translation> Translations { get; set; }
@@ -166,6 +164,6 @@ namespace DAL
             base.Dispose(disposing);
         }
 
-        //public System.Data.Entity.DbSet<Domain.PersonRoleInPlan> PersonRoleInPlans { get; set; }
+        //public System.Data.Entity.DbSet<Domain.Identity.UserInt> UserInts { get; set; }
     }
 }

@@ -1,0 +1,130 @@
+﻿@model Web.ViewModels.PlanCreateComplexViewModel
+    @{
+        ViewBag.Title = "CreateComplex";
+    }
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Create a plan
+            </header>
+                <div class="panel-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Plan.PlanName, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.Plan.PlanName.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Plan.PlanName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Plan.PlanTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.Plan.PlanTypeId, Model.PlanTypeSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Plan.PlanTypeId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Plan.PlanDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Plan.PlanDescription.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Plan.PlanDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Plan.PlanInstructions, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Plan.PlanInstructions.Value, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Plan.PlanInstructions, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Plan.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.Plan.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Plan.Duration, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="workout">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Workout.WorkoutName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Workout.WorkoutName, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.Workout.WorkoutName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="exercises">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-6">
+                                            @Html.DropDownListFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, Model.ExerciseSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, "", new { @class = "text-danger" })
+                                        </div>
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Sets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-2">
+                                            @Html.EditorFor(model => model.ExerciseInWorkout.Sets, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Sets, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-6">
+                                            @Html.DropDownListFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, Model.ExerciseSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, "", new { @class = "text-danger" })
+                                        </div>
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Sets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-2">
+                                            @Html.EditorFor(model => model.ExerciseInWorkout.Sets, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Sets, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-6">
+                                            @Html.DropDownListFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, Model.ExerciseSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, "", new { @class = "text-danger" })
+                                        </div>
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Sets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-2">
+                                            @Html.EditorFor(model => model.ExerciseInWorkout.Sets, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Sets, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-6">
+                                            @Html.DropDownListFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, Model.ExerciseSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Exercise.ExerciseName, "", new { @class = "text-danger" })
+                                        </div>
+                                        @Html.LabelFor(model => model.ExerciseInWorkout.Sets, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-2">
+                                            @Html.EditorFor(model => model.ExerciseInWorkout.Sets, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ExerciseInWorkout.Sets, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    </div>
+        </section>
+    </div>
+</div>

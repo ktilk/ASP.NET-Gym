@@ -1,0 +1,74 @@
+﻿@model Domain.UserInPlan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserInPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Plan.Duration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plan.Duration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserRoleInPlan.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserRoleInPlan.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAtDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAtDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedAtDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserInPlanId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -14,5 +14,9 @@ namespace DAL.Repositories
         public PlanRepository(IDbContext dbContext) : base(dbContext)
         {
         }
+        //public List<Plan> GetAllForUser(int userId)
+        //{
+        //    return DbSet.Where(p => p.Users. == userId).OrderBy(o => o.PlanDescription).Include(c => c.Workouts).ToList();
+        //}
     }
 }

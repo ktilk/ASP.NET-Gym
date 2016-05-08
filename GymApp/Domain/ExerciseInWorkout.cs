@@ -16,6 +16,9 @@ namespace Domain
 
         public int WorkoutId { get; set; }
         public virtual Workout Workout { get; set; }
+
+        public bool Tracked { get; set; }
+
         [Range(0, 128, ErrorMessageResourceName = "SetCountOutOfBoundsError", ErrorMessageResourceType = typeof(Resources.Domain))]
         public int? Sets { get; set; }
         [Range(0, 256, ErrorMessageResourceName = "RepCountOutOfBoundsError", ErrorMessageResourceType = typeof(Resources.Domain))]

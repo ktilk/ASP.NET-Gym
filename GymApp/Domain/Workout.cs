@@ -16,20 +16,16 @@ namespace Domain
         [MinLength(1, ErrorMessageResourceName = "WorkoutNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
         public string WorkoutName { get; set; }
 
-        public bool Tracked { get; set; }
-
         [DataType(DataType.Date)]
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime EndTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
-        public int PlanId { get; set; }
-        public virtual Plan Plan { get; set; }
-
+        public virtual List<WorkoutInPlan> WorkoutsInPlans{ get; set; }
         public virtual List<ExerciseInWorkout> ExercisesInWorkouts { get; set; }
     }
 }

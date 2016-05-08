@@ -1,0 +1,25 @@
+﻿@model Web.Areas.Admin.ViewModels.UserInPlanCreateEditViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.UserInPlan.UserId, "UserId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.UserInPlan.UserId, Model.UserSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.UserInPlan.UserId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.UserInPlan.PlanId, "PlanId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.UserInPlan.PlanId, Model.PlanSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.UserInPlan.PlanId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.UserInPlan.UserRoleInPlanId, "UserRoleInPlanId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.UserInPlan.UserRoleInPlanId, Model.UserRoleInPlanSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.UserInPlan.UserRoleInPlanId, "", new { @class = "text-danger" })
+    </div>
+</div>

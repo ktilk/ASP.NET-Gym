@@ -88,15 +88,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Competition name length is incorrect..
-        /// </summary>
-        public static string CompetitionNameLengthError {
-            get {
-                return ResourceManager.GetString("CompetitionNameLengthError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Contact type name too long..
         /// </summary>
         public static string ContactTypeNameLengthError {

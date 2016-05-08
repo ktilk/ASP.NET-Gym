@@ -58,17 +58,17 @@ namespace DAL
         public IPersonRepository Persons => GetRepo<IPersonRepository>();
         public IContactRepository Contacts => GetRepo<IContactRepository>();
         public IArticleRepository Articles => GetRepo<IArticleRepository>();
-        public ICompetitionRepository Competitions => GetRepo<ICompetitionRepository>();
         public IContactTypeRepository ContactTypes => GetRepo<IContactTypeRepository>();
         public IExerciseInWorkoutRepository ExerciseInWorkouts => GetRepo<IExerciseInWorkoutRepository>();
         public IExerciseRepository Exercises => GetRepo<IExerciseRepository>();
         public IExerciseTypeRepository ExerciseTypes => GetRepo<IExerciseTypeRepository>();
-        public IParticipationRepository Participations => GetRepo<IParticipationRepository>();
         public IPlanRepository Plans => GetRepo<IPlanRepository>();
         public IPlanTypeRepository PlanTypes => GetRepo<IPlanTypeRepository>();
         public IWorkoutRepository Workouts => GetRepo<IWorkoutRepository>();
-        public IPersonInPlanRepository PersonInPlans => GetRepo<IPersonInPlanRepository>();
-        public IPersonRoleInPlanRepository PersonRoleInPlans => GetRepo<IPersonRoleInPlanRepository>();
+        public IUserInPlanRepository UserInPlans => GetRepo<IUserInPlanRepository>();
+        public IUserRoleInPlanRepository UserRoleInPlans => GetRepo<IUserRoleInPlanRepository>();
+        public IWorkoutInPlanRepository WorkoutInPlans => GetRepo<IWorkoutInPlanRepository>();
+
 
         public IUserIntRepository UsersInt => GetRepo<IUserIntRepository>();
         public IUserRoleIntRepository UserRolesInt => GetRepo<IUserRoleIntRepository>();

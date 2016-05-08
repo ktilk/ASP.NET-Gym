@@ -69,11 +69,6 @@
                                 <span>Training</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
-                            <ul class="sub">
-                                <li><a class="" href="@Url.Action("Index", "Plans", new {area = ""}, null)">Plans</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Workouts", new {area = ""}, null)">Workouts</a></li>
-                                <li><a class="" href="@Url.Action("Index", "Exercises", new {area = ""}, null)">Exercises</a></li>
-                            </ul>
                         </li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
@@ -86,9 +81,15 @@
                             </a>
                             <ul class="sub">
                                 <li><a class="" href="@Url.Action("Index", "ContactTypes", new {area = "Admin"}, null)">Contact types</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Workouts", new {area = "Admin"}, null)">Workouts</a></li>
+                                <li><a class="" href="@Url.Action("Index", "ExerciseInWorkouts", new {area = "Admin"}, null)">Exercises in workouts</a></li>
                                 <li><a class="" href="@Url.Action("Index", "ExerciseTypes", new {area = "Admin"}, null)">Exercise types</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Exercises", new {area = "Admin"}, null)">Exercises</a></li>
+                                <li><a class="" href="@Url.Action("Index", "WorkoutInPlans", new {area = "Admin"}, null)">Workouts in plans</a></li>
                                 <li><a class="" href="@Url.Action("Index", "PlanTypes", new {area = "Admin"}, null)">Plan types</a></li>
-                                <li><a class="" href="@Url.Action("Index", "PersonRoleInPlans", new {area = "Admin"}, null)">Person roles in plans</a></li>
+                                <li><a class="" href="@Url.Action("Index", "Plans", new {area = "Admin"}, null)">Plans</a></li>
+                                <li><a class="" href="@Url.Action("Index", "UserInPlans", new {area = "Admin"}, null)">Users in plans</a></li>
+                                <li><a class="" href="@Url.Action("Index", "UserRoleInPlans", new {area = "Admin"}, null)">User roles in plans</a></li>
                                 <li><a class="" href="@Url.Action("Index", "Articles", new {area = "Admin"}, null)">Articles</a></li>
                                 <li><a class="" href="@Url.Action("Index", "MultiLangStrings", new {area = "Admin"}, null)">MultiLangStrings</a></li>
                                 <li><a class="" href="@Url.Action("Index", "Translations", new {area = "Admin"}, null)">Translations</a></li>

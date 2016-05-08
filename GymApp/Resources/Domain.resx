@@ -162,9 +162,6 @@
   <data name="BirthDate" xml:space="preserve">
     <value>Birthdate</value>
   </data>
-  <data name="CompetitionNameLengthError" xml:space="preserve">
-    <value>Competition name length is incorrect.</value>
-  </data>
   <data name="ContactTypeNameLengthError1" xml:space="preserve">
     <value>Contact type name length is incorrect.</value>
   </data>

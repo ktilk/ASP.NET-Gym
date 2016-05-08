@@ -27,16 +27,15 @@ namespace DAL.Interfaces
         IContactRepository Contacts { get; }
         IArticleRepository Articles { get; }
         IContactTypeRepository ContactTypes { get; }
-        ICompetitionRepository Competitions { get; }
         IExerciseInWorkoutRepository ExerciseInWorkouts { get; }
         IExerciseRepository Exercises { get; }
         IExerciseTypeRepository ExerciseTypes { get; }
-        IParticipationRepository Participations { get; }
         IPlanTypeRepository PlanTypes { get; }
         IPlanRepository Plans { get; }
         IWorkoutRepository Workouts { get; }
-        IPersonInPlanRepository PersonInPlans { get; }
-        IPersonRoleInPlanRepository PersonRoleInPlans { get; }
+        IUserInPlanRepository UserInPlans { get; }
+        IUserRoleInPlanRepository UserRoleInPlans { get; }
+        IWorkoutInPlanRepository WorkoutInPlans { get; }
 
 
         // Identity, PK - string

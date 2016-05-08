@@ -126,9 +126,6 @@
   <data name="BirthDate" xml:space="preserve">
     <value>Sünnikuupäev</value>
   </data>
-  <data name="CompetitionNameLengthError" xml:space="preserve">
-    <value>Võistluse nime pikkus on vale.</value>
-  </data>
   <data name="ContactTypeNameLengthError" xml:space="preserve">
     <value>Kontaktitüübi nime pikkus on vale.</value>
   </data>

@@ -70,7 +70,7 @@ namespace Web
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/niceadminjs").Include(
-                //"~/Scripts/NiceAdmin/jquery.js",
+                "~/Scripts/NiceAdmin/jquery.js",
                 "~/Scripts/NiceAdmin/jquery-ui-1.10.4.min.js",
                 "~/Scripts/NiceAdmin/jquery-1.8.3.min.js",
                 "~/Scripts/NiceAdmin/jquery-ui-1.9.2.custom.min.js",

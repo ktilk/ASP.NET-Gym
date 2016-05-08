@@ -1,0 +1,17 @@
+﻿@model Web.Areas.Admin.ViewModels.WorkoutInPlanCreateEditViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.WorkoutInPlan.PlanId, "PlanId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.WorkoutInPlan.PlanId, Model.PlanSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.WorkoutInPlan.PlanId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.WorkoutInPlan.WorkoutId, "WorkoutId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.WorkoutInPlan.WorkoutId, Model.WorkoutSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.WorkoutInPlan.WorkoutId, "", new { @class = "text-danger" })
+    </div>
+</div>

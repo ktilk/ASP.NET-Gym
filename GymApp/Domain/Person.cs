@@ -65,9 +65,6 @@ namespace Domain
         public virtual UserInt User { get; set; }
 
         public virtual List<Contact> Contacts { get; set; }
-        public virtual List<PersonInPlan> PersonInPlans { get; set; }
-        public virtual List<Plan> CreatorInPlans { get; set; }
-        public virtual List<Participation> Participations { get; set; }
 
         // not mapped properties, just getters
         public string FirstLastName => (FirstName + " " + LastName).Trim();
