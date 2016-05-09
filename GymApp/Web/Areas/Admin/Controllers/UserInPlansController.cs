@@ -53,7 +53,7 @@ namespace Web.Areas.Admin.Controllers
             vm.UserSelectList = new SelectList(_uow.UsersInt.All);
             vm.PlanSelectList = new SelectList(_uow.Plans.All.Select(x => new { x.PlanId, PlanName = x.PlanName.Translate() }).ToList(), nameof(Plan.PlanId), nameof(Plan.PlanName));
             vm.UserRoleInPlanSelectList = new SelectList(_uow.UserRoleInPlans.All.Select(x => new { x.UserRoleInPlanId, RoleName = x.RoleName.Translate() }).ToList(), nameof(UserRoleInPlan.UserRoleInPlanId), nameof(UserRoleInPlan.RoleName));
-            return View();
+            return View(vm);
         }
 
         // POST: Admin/UserInPlans/Create

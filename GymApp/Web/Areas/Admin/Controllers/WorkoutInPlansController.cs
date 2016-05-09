@@ -52,7 +52,7 @@ namespace Web.Areas.Admin.Controllers
             var vm = new WorkoutInPlanCreateEditViewModel();
             vm.PlanSelectList = new SelectList(_uow.Exercises.All.Select(x => new { x.ExerciseId, ExerciseName = x.ExerciseName }).ToList(), nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
             vm.WorkoutSelectList = new SelectList(_uow.Workouts.All.Select(x => new { x.WorkoutId, WorkoutName = x.WorkoutName }).ToList(), nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
-            return View();
+            return View(vm);
         }
 
         // POST: Admin/WorkoutInPlans/Create
