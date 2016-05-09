@@ -15,9 +15,7 @@ namespace Domain
         [Display(ResourceType = typeof(Resources.Domain), Name = "EntityPrimaryKey")]
         public int PlanId { get; set; }
 
-        [ForeignKey(nameof(PlanName))]
-        public int PlanNameId { get; set; }
-        public virtual MultiLangString PlanName { get; set; }
+        public string PlanName { get; set; }
 
         public int? Rating { get; set; }
 
@@ -34,7 +32,7 @@ namespace Domain
 
         public string Duration { get; set; }
 
-        public virtual List<UserInPlan> Users { get; set; }
+        public virtual List<UserInPlan> UserInPlans { get; set; }
         public virtual List<WorkoutInPlan> WorkoutsInPlans { get; set; }
     }
 }

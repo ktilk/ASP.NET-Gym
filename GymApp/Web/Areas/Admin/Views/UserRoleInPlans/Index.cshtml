@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.UserRoleInPlan>
+﻿@model Web.Areas.Admin.ViewModels.UserRoleInPlanIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,24 +12,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RoleName)
+            @Html.DisplayNameFor(model => model.UserRoleInPlans.FirstOrDefault().RoleName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
+            @Html.DisplayNameFor(model => model.UserRoleInPlans.FirstOrDefault().CreatedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model.UserRoleInPlans.FirstOrDefault().CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+            @Html.DisplayNameFor(model => model.UserRoleInPlans.FirstOrDefault().ModifiedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.UserRoleInPlans.FirstOrDefault().ModifiedBy)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.UserRoleInPlans) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.RoleName.Value)

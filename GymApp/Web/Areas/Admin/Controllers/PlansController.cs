@@ -68,7 +68,6 @@ namespace Web.Areas.Admin.Controllers
             {
                 if (vm.Plan == null) vm.Plan = new Plan();
 
-                vm.Plan.PlanName = new MultiLangString(vm.PlanName, CultureHelper.GetCurrentNeutralUICulture(), vm.PlanName, nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanName));
                 vm.Plan.PlanDescription = new MultiLangString(vm.PlanDescription, CultureHelper.GetCurrentNeutralUICulture(), vm.PlanDescription, nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanDescription));
                 vm.Plan.PlanInstructions = new MultiLangString(vm.PlanInstructions, CultureHelper.GetCurrentNeutralUICulture(), vm.PlanInstructions, nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanInstructions));
 
@@ -95,7 +94,7 @@ namespace Web.Areas.Admin.Controllers
             var vm = new PlanCreateEditViewModel()
             {
                 Plan = plan,
-                PlanName = plan.PlanName.Translate(),
+                PlanName = plan.PlanName,
                 PlanDescription = plan.PlanDescription.Translate(),
                 PlanInstructions = plan.PlanInstructions.Translate()
             };
@@ -112,9 +111,6 @@ namespace Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                vm.Plan.PlanName = _uow.MultiLangStrings.GetById(vm.Plan.PlanId);
-                vm.Plan.PlanName.SetTranslation(vm.PlanName, CultureHelper.GetCurrentNeutralUICulture(),
-    nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanName));
                 vm.Plan.PlanDescription = _uow.MultiLangStrings.GetById(vm.Plan.PlanId);
                 vm.Plan.PlanDescription.SetTranslation(vm.PlanDescription, CultureHelper.GetCurrentNeutralUICulture(),
     nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanDescription));

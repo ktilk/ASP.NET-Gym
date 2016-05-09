@@ -12,4 +12,9 @@ namespace Web.Areas.Admin.ViewModels
         public string ExerciseTypeName { get; set; }
         public string Description { get; set; }
     }
+
+    public class ExerciseTypeIndexViewModel
+    {
+        public List<ExerciseType> ExerciseTypes { get; set; }
+    }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.PlanType>
+﻿@model Web.Areas.Admin.ViewModels.PlanTypeIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,15 +12,15 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlanTypeName)
+            @Html.DisplayNameFor(model => model.PlanTypes.FirstOrDefault().PlanTypeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanTypeDescription)
+            @Html.DisplayNameFor(model => model.PlanTypes.FirstOrDefault().PlanTypeDescription)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.PlanTypes) {
     <tr>
         <td>
             @item.PlanTypeName.Translate()

@@ -15,6 +15,6 @@ namespace Domain
         public int? RoleNameId { get; set; }
         public virtual MultiLangString RoleName { get; set; }
 
-        public virtual List<UserInPlan> UsersInPlans { get; set; }
+        public virtual List<UserInPlan> UserInPlans { get; set; }
     }
 }

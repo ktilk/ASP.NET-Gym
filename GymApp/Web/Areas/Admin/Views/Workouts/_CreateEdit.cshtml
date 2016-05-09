@@ -1,0 +1,34 @@
+﻿@using HtmlHelpers
+@model Web.ViewModels.WorkoutCreateEditViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Workout.WorkoutName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Workout.WorkoutName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Workout.WorkoutName, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Workout.Date, htmlAttributes: new {@class = "control-label col-md-2"})
+    <div class="col-md-10">
+        @Html.DateTimeEditorFor(model => model.Workout.Date, new {@class = "form-control"})
+        @Html.ValidationMessageFor(model => model.Workout.Date, "", new {@class = "text-danger"})
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Workout.StartTime, htmlAttributes: new {@class = "control-label col-md-2"})
+    <div class="col-md-10">
+        @Html.DateTimeEditorFor(model => model.Workout.StartTime, new {@class = "form-control"})
+        @Html.ValidationMessageFor(model => model.Workout.StartTime, "", new {@class = "text-danger"})
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Workout.EndTime, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DateTimeEditorFor(model => model.Workout.EndTime, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Workout.EndTime, "", new { @class = "text-danger" })
+    </div>
+</div>

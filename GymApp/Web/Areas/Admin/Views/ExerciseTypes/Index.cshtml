@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.ExerciseType>
+﻿@model Web.Areas.Admin.ViewModels.ExerciseTypeIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,15 +12,15 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ExerciseTypeName)
+            @Html.DisplayNameFor(model => model.ExerciseTypes.FirstOrDefault().ExerciseTypeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExerciseTypeDescription)
+            @Html.DisplayNameFor(model => model.ExerciseTypes.FirstOrDefault().ExerciseTypeDescription)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.ExerciseTypes) {
     <tr>
         <td>
             @item.ExerciseTypeName.Translate()

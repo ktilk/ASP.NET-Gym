@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.WorkoutInPlan>
+﻿@model Web.Areas.Admin.ViewModels.WorkoutInPlanIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,30 +12,30 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Plan.PlanName)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().Plan.PlanName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Workout.WorkoutName)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().Workout.WorkoutName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().CreatedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().ModifiedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.WorkoutInPlans.FirstOrDefault().ModifiedBy)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.WorkoutInPlans) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Plan.PlanName.Value)
+            @Html.DisplayFor(modelItem => item.Plan.PlanName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Workout.WorkoutName)

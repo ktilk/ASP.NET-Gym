@@ -27,9 +27,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PlanTypes
-        public ActionResult Index()
+        public ActionResult Index(PlanTypeIndexViewModel vm)
         {
-            var vm = _uow.PlanTypes.All;
+            vm.PlanTypes = _uow.PlanTypes.All;
             return View(vm);
         }
 

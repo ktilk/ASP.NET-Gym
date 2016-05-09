@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create") // @Html.ActionLink("Create New Complex", "CreateComplex")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -32,7 +32,7 @@
 @foreach (var item in Model.Plans) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanName.Value)
+            @Html.DisplayFor(modelItem => item.PlanName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PlanDescription.Value)

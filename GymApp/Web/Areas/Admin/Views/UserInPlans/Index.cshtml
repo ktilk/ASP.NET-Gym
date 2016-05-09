@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.UserInPlan>
+﻿@model Web.Areas.Admin.ViewModels.UserInPlanIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,33 +12,33 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Plan.PlanName)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().Plan.PlanName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User.Email)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().User.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserRoleInPlan.RoleName)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().UserRoleInPlan.RoleName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().CreatedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().ModifiedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.UserInPlans.FirstOrDefault().ModifiedBy)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.UserInPlans) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Plan.PlanName.Value)
+            @Html.DisplayFor(modelItem => item.Plan.PlanName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.User.Email)

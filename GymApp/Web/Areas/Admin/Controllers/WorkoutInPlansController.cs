@@ -25,9 +25,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/WorkoutInPlans
-        public ActionResult Index()
+        public ActionResult Index(WorkoutInPlanIndexViewModel vm)
         {
-            var vm = _uow.WorkoutInPlans.All;
+            vm.WorkoutInPlans = _uow.WorkoutInPlans.All;
             return View(vm);
         }
 
@@ -50,7 +50,7 @@ namespace Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             var vm = new WorkoutInPlanCreateEditViewModel();
-            vm.PlanSelectList = new SelectList(_uow.Exercises.All.Select(x => new { x.ExerciseId, ExerciseName = x.ExerciseName }).ToList(), nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
+            vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
             vm.WorkoutSelectList = new SelectList(_uow.Workouts.All.Select(x => new { x.WorkoutId, WorkoutName = x.WorkoutName }).ToList(), nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
             return View(vm);
         }

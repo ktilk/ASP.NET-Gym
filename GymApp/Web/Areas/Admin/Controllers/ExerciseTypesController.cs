@@ -12,6 +12,7 @@ using Domain;
 using Web.Areas.Admin.ViewModels;
 using Web.Controllers;
 using Web.Helpers;
+using Web.ViewModels;
 
 namespace Web.Areas.Admin.Controllers
 {
@@ -27,9 +28,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/ExerciseTypes
-        public ActionResult Index()
+        public ActionResult Index(ExerciseTypeIndexViewModel vm)
         {
-            var vm = _uow.ExerciseTypes.All;
+            vm.ExerciseTypes = _uow.ExerciseTypes.All;
             return View(vm);
         }
 

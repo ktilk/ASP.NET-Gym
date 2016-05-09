@@ -2631,6 +2631,7 @@
     <Content Include="Areas\Admin\Views\ExerciseInWorkouts\_CreateEdit.cshtml" />
     <Content Include="Areas\Admin\Views\UserInPlans\_CreateEdit.cshtml" />
     <Content Include="Areas\Admin\Views\WorkoutInPlans\_CreateEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Workouts\_CreateEdit.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -2846,7 +2847,6 @@
     <Content Include="Areas\Admin\Views\Workouts\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Workouts\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Workouts\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Workouts\_CreateEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Plans\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Plans\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Plans\Details.cshtml" />

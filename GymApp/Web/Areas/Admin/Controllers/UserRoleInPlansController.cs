@@ -27,9 +27,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/UserRoleInPlans
-        public ActionResult Index()
+        public ActionResult Index(UserRoleInPlanIndexViewModel vm)
         {
-            var vm = _uow.UserRoleInPlans.All;
+            vm.UserRoleInPlans = _uow.UserRoleInPlans.All;
             return View(vm);
         }
 

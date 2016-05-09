@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.ExerciseInWorkout>
+﻿@model Web.Areas.Admin.ViewModels.ExerciseInWorkoutIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,42 +12,42 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Exercise.ExerciseName)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Exercise.ExerciseName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Workout.WorkoutName)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Workout.WorkoutName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tracked)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Tracked)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Sets)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Sets)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Repetitions)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Repetitions)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Time)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Weight)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().Weight)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().CreatedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().CreatedBy)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().ModifiedAtDT)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.ExerciseInWorkouts.FirstOrDefault().ModifiedBy)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.ExerciseInWorkouts) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Exercise.ExerciseName)

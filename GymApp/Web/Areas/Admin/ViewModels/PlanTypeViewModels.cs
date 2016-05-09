@@ -12,4 +12,8 @@ namespace Web.Areas.Admin.ViewModels
         public string PlanTypeName { get; set; }
         public string Description { get; set; }
     }
+    public class PlanTypeIndexViewModel
+    {
+        public List<PlanType> PlanTypes { get; set; }
+    }
 }

@@ -25,9 +25,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/ExerciseInWorkouts
-        public ActionResult Index()
+        public ActionResult Index(ExerciseInWorkoutIndexViewModel vm)
         {
-            var vm = _uow.ExerciseInWorkouts.All;
+            vm.ExerciseInWorkouts = _uow.ExerciseInWorkouts.All;
             return View(vm);
         }
 

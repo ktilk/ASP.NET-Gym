@@ -11,4 +11,9 @@ namespace Web.Areas.Admin.ViewModels
         public UserRoleInPlan UserRoleInPlan { get; set; }
         public string RoleName { get; set; }
     }
+
+    public class UserRoleInPlanIndexViewModel
+    {
+        public List<UserRoleInPlan> UserRoleInPlans { get; set; } 
+    }
 }

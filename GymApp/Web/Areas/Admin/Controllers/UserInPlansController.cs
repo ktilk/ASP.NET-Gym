@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using DAL;
 using DAL.Interfaces;
 using Domain;
+using Domain.Identity;
 using Web.Areas.Admin.ViewModels;
 using Web.Controllers;
 
@@ -25,9 +26,9 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Admin/UserInPlans
-        public ActionResult Index()
+        public ActionResult Index(UserInPlanIndexViewModel vm)
         {
-            var vm = _uow.UserInPlans.All;
+            vm.UserInPlans = _uow.UserInPlans.All;
             return View(vm);
         }
 
@@ -50,8 +51,10 @@ namespace Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             var vm = new UserInPlanCreateEditViewModel();
-            vm.UserSelectList = new SelectList(_uow.UsersInt.All);
-            vm.PlanSelectList = new SelectList(_uow.Plans.All.Select(x => new { x.PlanId, PlanName = x.PlanName.Translate() }).ToList(), nameof(Plan.PlanId), nameof(Plan.PlanName));
+            //vm.UserSelectList = new SelectList(_uow.UsersInt.All, nameof(UserInt.Id), nameof(UserInt.Email));
+            vm.UserSelectList = new SelectList(_uow.UsersInt.All, nameof(UserInt.Id), nameof(UserInt.UserName));
+
+            vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
             vm.UserRoleInPlanSelectList = new SelectList(_uow.UserRoleInPlans.All.Select(x => new { x.UserRoleInPlanId, RoleName = x.RoleName.Translate() }).ToList(), nameof(UserRoleInPlan.UserRoleInPlanId), nameof(UserRoleInPlan.RoleName));
             return View(vm);
         }
