@@ -1,0 +1,22 @@
+-controllerid UOW peale
+-Exercise _CreateEdit vaade katki- vist fixed?
+-Exercise Delete viewle ainult admini õigustega
+-kontrollida, kas kõik person+sth on asendatud user+sth
+
+-Lisatud kontrollerid korda teha
+	-ExerciseInWorkouts x
+	-WorkoutInPlans     x
+	-UserInPlans        x
+-Lisatud vaatemudelid korda teha
+	-ExerciseInWorkouts x
+	-WorkoutInPlans     x
+	-UserInPlans        x
+-Lisatud vaated korda teha
+	-ExerciseInWorkouts x
+	-WorkoutInPlans     x
+	-UserInPlans        x
+
+Testida vaated ja lisamised/muutmised 
+	-WorkoutInPlani lisamine katki, DB
+	-UserRoleInPlan index ei näita RoleName
+	-UserInPlan create katki
