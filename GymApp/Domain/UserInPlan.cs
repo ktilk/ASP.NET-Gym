@@ -20,9 +20,9 @@ namespace Domain
         public virtual UserInt User { get; set; }
 
         public int PlanId { get; set; }
-        public Plan Plan { get; set; }
+        public virtual Plan Plan { get; set; }
 
         public int UserRoleInPlanId { get; set; }
-        public UserRoleInPlan UserRoleInPlan { get; set; }
+        public virtual UserRoleInPlan UserRoleInPlan { get; set; }
     }
 }

@@ -66,8 +66,12 @@ namespace Web.Areas.Admin.Controllers
             {
                 if (vm.ExerciseType == null) vm.ExerciseType = new ExerciseType();
 
-                vm.ExerciseType.ExerciseTypeName = new MultiLangString(vm.ExerciseTypeName, CultureHelper.GetCurrentNeutralUICulture(), vm.ExerciseTypeName, nameof(vm.ExerciseType)+"."+vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeName));
-                vm.ExerciseType.ExerciseTypeDescription = new MultiLangString(vm.Description, CultureHelper.GetCurrentNeutralUICulture(), vm.Description, nameof(vm.ExerciseType)+"."+vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeDescription));
+                vm.ExerciseType.ExerciseTypeName = new MultiLangString(vm.ExerciseTypeName,
+                    CultureHelper.GetCurrentNeutralUICulture(), vm.ExerciseTypeName,
+                    nameof(vm.ExerciseType)+"."+vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeName));
+                vm.ExerciseType.ExerciseTypeDescription = new MultiLangString(vm.Description,
+                    CultureHelper.GetCurrentNeutralUICulture(), vm.Description,
+                    nameof(vm.ExerciseType)+"."+vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeDescription));
 
                 _uow.ExerciseTypes.Add(vm.ExerciseType);
                 _uow.Commit();
@@ -107,10 +111,11 @@ namespace Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                vm.ExerciseType.ExerciseTypeName = _uow.MultiLangStrings.GetById(vm.ExerciseType.ExerciseTypeId);
+                vm.ExerciseType.ExerciseTypeName = _uow.MultiLangStrings.GetById(vm.ExerciseType.ExerciseTypeNameId);
                 vm.ExerciseType.ExerciseTypeName.SetTranslation(vm.ExerciseTypeName, CultureHelper.GetCurrentNeutralUICulture(),
                     nameof(vm.ExerciseType) + "." + vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeName));
-                vm.ExerciseType.ExerciseTypeDescription = _uow.MultiLangStrings.GetById(vm.ExerciseType.ExerciseTypeId);
+
+                vm.ExerciseType.ExerciseTypeDescription = _uow.MultiLangStrings.GetById(vm.ExerciseType.ExerciseTypeDescriptionId);
                 vm.ExerciseType.ExerciseTypeDescription.SetTranslation(vm.Description, CultureHelper.GetCurrentNeutralUICulture(),
     nameof(vm.ExerciseType) + "." + vm.ExerciseType.ExerciseTypeId + "." + nameof(vm.ExerciseType.ExerciseTypeDescription));
 

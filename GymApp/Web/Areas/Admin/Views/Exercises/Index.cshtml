@@ -63,7 +63,7 @@
 @foreach (var item in Model.Exercises) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ExerciseType.ExerciseTypeName.Value)
+            @item.ExerciseType.ExerciseTypeName.Translate()
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ExerciseName)

@@ -48,6 +48,9 @@
 else
 {
     <ul class="nav pull-right top-menu">
+        <li>
+            @Html.ActionLink(@Resources.Common.Login, "Login", new { area = "", controller = "Account" }, htmlAttributes: new { id = "loginLink" })
+        </li>
         <li class="@Html.Raw(culture == "et" ? "list-group-item-success" : "")">
             @Html.ActionLink("Est", "SetLanguage", new {area = "", controller = "Language", culture = "et", returnUrl}, htmlAttributes: new {id = "langLinkEst"})
         </li>

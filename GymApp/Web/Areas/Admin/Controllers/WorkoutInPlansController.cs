@@ -51,7 +51,7 @@ namespace Web.Areas.Admin.Controllers
         {
             var vm = new WorkoutInPlanCreateEditViewModel();
             vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
-            vm.WorkoutSelectList = new SelectList(_uow.Workouts.All.Select(x => new { x.WorkoutId, WorkoutName = x.WorkoutName }).ToList(), nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
+            vm.WorkoutSelectList = new SelectList(_uow.Workouts.All, nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
             return View(vm);
         }
 
@@ -84,10 +84,10 @@ namespace Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            var vm = new WorkoutInPlanCreateEditViewModel()
-            {
-                WorkoutInPlan = workoutInPlan
-            };
+            var vm = new WorkoutInPlanCreateEditViewModel();
+            vm.WorkoutInPlan = workoutInPlan;
+            vm.WorkoutSelectList = new SelectList(_uow.Workouts.All, nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
+            vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
             return View(vm);
         }
 

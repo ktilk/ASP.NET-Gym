@@ -17,6 +17,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ExerciseType.ExerciseTypeId)
         @Html.HiddenFor(model => model.ExerciseType.ExerciseTypeNameId)
+        @Html.HiddenFor(model => model.ExerciseType.ExerciseTypeDescriptionId)
 
         @Html.Partial("_CreateEdit", Model)
 

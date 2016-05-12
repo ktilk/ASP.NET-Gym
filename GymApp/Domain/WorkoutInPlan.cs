@@ -14,9 +14,9 @@ namespace Domain
         public int WorkoutInPlanId { get; set; }
 
         public int PlanId { get; set; }
-        public Plan Plan { get; set; }
+        public virtual Plan Plan { get; set; }
 
         public int WorkoutId { get; set; }
-        public Workout Workout { get; set; }
+        public virtual Workout Workout { get; set; }
     }
 }

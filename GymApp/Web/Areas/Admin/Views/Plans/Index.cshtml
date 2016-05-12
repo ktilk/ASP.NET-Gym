@@ -32,19 +32,19 @@
 @foreach (var item in Model.Plans) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanName)
+            @item.PlanName
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanDescription.Value)
+            @item.PlanDescription.Translate()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanInstructions.Value)
+            @item.PlanInstructions.Translate()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanType.PlanTypeName.Value)
+            @item.PlanType.PlanTypeName.Translate()
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Rating)
+            @item.Rating
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new {id = item.PlanId}) |

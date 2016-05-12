@@ -92,10 +92,10 @@ namespace Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            var vm = new ExerciseInWorkoutCreateEditViewModel()
-            {
-                ExerciseInWorkout = exerciseInWorkout
-            };
+            var vm = new ExerciseInWorkoutCreateEditViewModel();
+            vm.ExerciseInWorkout = exerciseInWorkout;
+            vm.ExerciseSelectList = new SelectList(_uow.Exercises.All, nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
+            vm.WorkoutSelectList = new SelectList(_uow.Workouts.All, nameof(Workout.WorkoutId), nameof(Workout.WorkoutName));
             return View(vm);
         }
 

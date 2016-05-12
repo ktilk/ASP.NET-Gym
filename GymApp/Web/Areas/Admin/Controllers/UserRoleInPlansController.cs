@@ -64,10 +64,6 @@ namespace Web.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 if (vm.UserRoleInPlan == null) vm.UserRoleInPlan = new UserRoleInPlan();
-
-                vm.UserRoleInPlan.RoleName = new MultiLangString(vm.RoleName,
-                    CultureHelper.GetCurrentNeutralUICulture(), vm.RoleName,
-                    nameof(vm.UserRoleInPlan) + "." + vm.UserRoleInPlan.UserRoleInPlanId + "." + nameof(vm.UserRoleInPlan.RoleName));
                 _uow.UserRoleInPlans.Add(vm.UserRoleInPlan);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));
@@ -90,8 +86,7 @@ namespace Web.Areas.Admin.Controllers
             }
             var vm = new UserRoleInPlanCreateEditViewModel()
             {
-                UserRoleInPlan = userRoleInPlan,
-                RoleName = userRoleInPlan.RoleName.Translate()
+                UserRoleInPlan = userRoleInPlan
             };
             return View(vm);
         }
@@ -105,9 +100,6 @@ namespace Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                vm.UserRoleInPlan.RoleName = _uow.MultiLangStrings.GetById(vm.UserRoleInPlan.UserRoleInPlanId);
-                vm.UserRoleInPlan.RoleName.SetTranslation(vm.RoleName, CultureHelper.GetCurrentNeutralUICulture(),
-                    nameof(vm.UserRoleInPlan) + "." + vm.UserRoleInPlan.UserRoleInPlanId + "." + nameof(vm.UserRoleInPlan.RoleName));
                 _uow.UserRoleInPlans.Update(vm.UserRoleInPlan);
                 _uow.Commit();
                 return RedirectToAction(nameof(Index));

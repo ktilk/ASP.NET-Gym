@@ -488,34 +488,18 @@ namespace DAL
         {
             var role1 = new UserRoleInPlan()
             {
-                RoleName = new MultiLangString("Creator", "en", "Creator", "UserRoleInPlan.RoleName"),
+                RoleName = "Creator"
             };
 
             context.UserRoleInPlans.Add(role1);
             context.SaveChanges();
 
-            context.Translations.Add(new Translation()
-            {
-                Value = "Looja",
-                Culture = "et",
-                MultiLangString = role1.RoleName
-            });
-            context.SaveChanges();
-
             var role2 = new UserRoleInPlan()
             {
-                RoleName = new MultiLangString("Trainee", "en", "Trainee", "UserRoleInPlan.RoleName"),
+                RoleName = "Trainee"
             };
 
             context.UserRoleInPlans.Add(role2);
-            context.SaveChanges();
-
-            context.Translations.Add(new Translation()
-            {
-                Value = "Treenija",
-                Culture = "et",
-                MultiLangString = role2.RoleName
-            });
             context.SaveChanges();
         }
     }

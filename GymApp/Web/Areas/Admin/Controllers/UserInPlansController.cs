@@ -55,7 +55,7 @@ namespace Web.Areas.Admin.Controllers
             vm.UserSelectList = new SelectList(_uow.UsersInt.All, nameof(UserInt.Id), nameof(UserInt.UserName));
 
             vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
-            vm.UserRoleInPlanSelectList = new SelectList(_uow.UserRoleInPlans.All.Select(x => new { x.UserRoleInPlanId, RoleName = x.RoleName.Translate() }).ToList(), nameof(UserRoleInPlan.UserRoleInPlanId), nameof(UserRoleInPlan.RoleName));
+            vm.UserRoleInPlanSelectList = new SelectList(_uow.UserRoleInPlans.All, nameof(UserRoleInPlan.UserRoleInPlanId), nameof(UserRoleInPlan.RoleName));
             return View(vm);
         }
 
@@ -88,10 +88,11 @@ namespace Web.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            var vm = new UserInPlanCreateEditViewModel()
-            {
-                UserInPlan = userInPlan
-            };
+            var vm = new UserInPlanCreateEditViewModel();
+            vm.UserInPlan = userInPlan;
+            vm.PlanSelectList = new SelectList(_uow.Plans.All, nameof(Plan.PlanId), nameof(Plan.PlanName));
+            vm.UserSelectList = new SelectList(_uow.UsersInt.All, nameof(Domain.Identity.User.Id), nameof(Domain.Identity.User.UserName));
+            vm.UserRoleInPlanSelectList = new SelectList(_uow.UserRoleInPlans.All, nameof(UserRoleInPlan.UserRoleInPlanId), nameof(UserRoleInPlan.RoleName));
             return View(vm);
         }
 

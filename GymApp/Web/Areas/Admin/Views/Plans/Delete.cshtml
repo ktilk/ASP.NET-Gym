@@ -12,7 +12,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PlanDescription.Value)
+            @Html.DisplayNameFor(model => model.PlanDescription)
         </dt>
 
         <dd>
@@ -20,7 +20,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PlanInstructions.Value)
+            @Html.DisplayNameFor(model => model.PlanInstructions)
         </dt>
 
         <dd>
@@ -36,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PlanType.CreatedBy)
+            @Html.DisplayNameFor(model => model.PlanType.PlanTypeName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PlanType.CreatedBy)
+            @Html.DisplayFor(model => model.PlanType.PlanTypeName.Value)
         </dd>
 
         <dt>

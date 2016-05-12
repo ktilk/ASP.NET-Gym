@@ -9,7 +9,7 @@ namespace Web.Areas.Admin.ViewModels
     public class UserRoleInPlanCreateEditViewModel
     {
         public UserRoleInPlan UserRoleInPlan { get; set; }
-        public string RoleName { get; set; }
+        //public string RoleName { get; set; }
     }
 
     public class UserRoleInPlanIndexViewModel

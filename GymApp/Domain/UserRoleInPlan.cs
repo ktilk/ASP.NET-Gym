@@ -11,9 +11,10 @@ namespace Domain
     {
         public int UserRoleInPlanId { get; set; }
 
-        [ForeignKey(nameof(RoleName))]
-        public int? RoleNameId { get; set; }
-        public virtual MultiLangString RoleName { get; set; }
+        //[ForeignKey(nameof(RoleName))]
+        //public int? RoleNameId { get; set; }
+        //public virtual MultiLangString RoleName { get; set; }
+        public string RoleName { get; set; }
 
         public virtual List<UserInPlan> UserInPlans { get; set; }
     }
