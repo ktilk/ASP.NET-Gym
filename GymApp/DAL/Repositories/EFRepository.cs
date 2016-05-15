@@ -45,20 +45,20 @@ namespace DAL.Repositories
 
         public List<T> All => DbSet.ToList();
 
-        //public IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
-        //{
-        //	return includeProperties.
-        //		Aggregate<Expression<Func<T, object>>, IQueryable<T>>(DbSet,
-        //		  (current, includeProperty) => current.Include(includeProperty));
-        //	/*
-        //	// non linq version
-        //	foreach (var includeProperty in includeProperties)
-        //	{
-        //		query = query.Include(includeProperty);
-        //	}
-        //	return query;
-        //	*/
-        //}
+        public IQueryable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties)
+        {
+        	return includeProperties.
+        		Aggregate<Expression<Func<T, object>>, IQueryable<T>>(DbSet,
+        		  (current, includeProperty) => current.Include(includeProperty));
+        	/*
+        	// non linq version
+        	foreach (var includeProperty in includeProperties)
+        	{
+        		query = query.Include(includeProperty);
+        	}
+        	return query;
+        	*/
+        }
 
         public List<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
         {

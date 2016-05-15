@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Plan>
+﻿@model Web.ViewModels.PlanIndexViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,76 +12,136 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlanDescription.Value)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanInstructions.Value)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanDescription)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanType.CreatedBy)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanInstructions)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PlanName)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanType.PlanTypeName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Rating)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().Duration)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedAtDT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().WorkoutsInPlans.FirstOrDefault().Workout.WorkoutName)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlanDescription.Value)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlanInstructions.Value)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlanType.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlanName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedAtDT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModifiedBy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PlanId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PlanId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PlanId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Plans)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanName)
+            </td>
+            <td>
+                @item.PlanDescription.Translate()
+            </td>
+            <td>
+                @item.PlanInstructions.Translate()
+            </td>
+            <td>
+                @item.PlanType.PlanTypeName.Translate()
+            </td>
+            <td>
+                @item.Duration
+            </td>
+            @foreach (var workout in item.WorkoutsInPlans.Where(x => x.PlanId == item.PlanId))
+            {
+
+            }
+            <td>
+                @item.WorkoutsInPlans.Where(x => x.PlanId == item.PlanId).ToList()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedAtDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.PlanId}) |
+                @Html.ActionLink("Details", "Details", new {id = item.PlanId}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.PlanId})
+            </td>
+        </tr>
+    }
 
 </table>
+@foreach (var item in Model.Plans)
+{
+    <div>
+        <label>
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanName)
+        </label>
+        <p>
+            @item.PlanName
+        </p>
+        <label>
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanType.PlanTypeName)
+        </label>
+        <p>
+            @item.PlanType.PlanTypeName.Translate()
+        </p>
+        <label>
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanDescription)
+        </label>
+        <p>
+            @item.PlanDescription.Translate()
+        </p>
+        <label>
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().PlanInstructions)
+        </label>
+        <p>
+            @item.PlanInstructions.Translate()
+        </p>
+        <label>
+            @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().Duration)
+        </label>
+        <p>
+            @item.Duration
+        </p>
+        @foreach (var workout in item.WorkoutsInPlans.Where(x => x.PlanId == item.PlanId).Select(w => w.Workout))
+        {
+            <div>
+                <label>
+                    @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().WorkoutsInPlans.FirstOrDefault().Workout.WorkoutName)
+                </label>
+                <p>
+                    @workout.WorkoutName
+                </p>
+                @foreach (var exercise in workout.ExercisesInWorkouts.Where(e => e.Tracked == false && e.WorkoutId == workout.WorkoutId))
+                {
+                    <div style="width: 100%; display: table;">
+                        <div style="display: table-row">
+                            <div style="display: table-cell;">
+                                <label>
+                                    @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().WorkoutsInPlans.FirstOrDefault().Workout.ExercisesInWorkouts.FirstOrDefault().Exercise.ExerciseName)
+                                </label>
+                                <p>
+                                    @exercise.Exercise.ExerciseName
+                                </p>
+                            </div>
+                            <div style="display: table-cell;">
+                                <label>
+                                    @Html.DisplayNameFor(model => model.Plans.FirstOrDefault().WorkoutsInPlans.FirstOrDefault().Workout.ExercisesInWorkouts.FirstOrDefault().Sets)
+                                </label>
+                                <p>
+                                    @exercise.Sets
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+}

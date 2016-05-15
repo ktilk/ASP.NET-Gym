@@ -29,8 +29,26 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             //var plans = _uow.Plans.All;
-            var vm = (from p in _uow.Plans.AllIncluding())
-            return View(plans);
+            var vm = new PlanIndexViewModel();
+            //var vmquery =
+            //    _uow.Plans.GetAllIncluding(pl => pl.UserInPlans)
+            //        .Include(
+            //            wip =>
+            //                wip.WorkoutsInPlans.Select(w => w.Workout)
+            //                    .ToList()
+            //                    .Select(eiw => eiw.ExercisesInWorkouts.Select(e => e.Exercise)))
+            //        .ToList();
+            //vm.Plans =
+            //    _uow.Plans.AllIncluding(
+            //        wip =>
+            //            wip.WorkoutsInPlans.Select(
+            //                w => w.Workout.ExercisesInWorkouts.Where(e => e.Tracked == false).Select(e => e.Exercise)));
+            vm.Plans = _uow.Plans.All;
+            vm.Workouts = _uow.Workouts.All;
+            vm.Exercises = _uow.Exercises.All;
+            
+            //vm.Plans = vmquery;
+            return View(vm);
         }
 
         // GET: Plans/Details/5

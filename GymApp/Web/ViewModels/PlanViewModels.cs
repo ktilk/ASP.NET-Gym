@@ -37,5 +37,7 @@ namespace Web.ViewModels
     public class PlanIndexViewModel
     {
         public List<Plan> Plans { get; set; }
+        public List<Workout> Workouts { get; set; }
+        public List<Exercise> Exercises { get; set; }
     }
 }

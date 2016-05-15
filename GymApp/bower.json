@@ -1,11 +1,13 @@
 {
   "name": "Web",
-  "authors": ["Andres Käver <akaver@akaver.com>"],
+  "authors": [
+    "Andres Käver <akaver@akaver.com>"
+  ],
   "description": "",
   "main": "",
-  "moduleType": [ ],
+  "moduleType": [],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/ktilk/ASP.NET-Gym",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -18,10 +20,9 @@
     "globalize": "^1.1.1",
     "cldr-data": "^29.0.0",
     "jquery-validation-globalize": "^1.0.0",
-    "moment": "^2.12.0",
+    "moment": "^2.13.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.37",
     "bootstrap": "^3.3.6",
-    "respond": "^1.4.2",
-    "tinymce": "^4.3.8"
+    "respond": "^1.4.2"
   }
 }
