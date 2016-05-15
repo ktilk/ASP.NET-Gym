@@ -10,16 +10,14 @@ using DAL;
 using DAL.Interfaces;
 using Domain;
 using Microsoft.AspNet.Identity;
-using Web.Areas.Admin.ViewModels;
-using Web.Controllers;
 using Web.Helpers;
-using PlanCreateEditViewModel = Web.Areas.Admin.ViewModels.PlanCreateEditViewModel;
+using Web.ViewModels;
 
-namespace Web.Areas.Admin.Controllers
+namespace Web.Controllers
 {
+    [Authorize]
     public class PlansController : BaseController
     {
-        //private DataBaseContext db = new DataBaseContext();
         private readonly IUOW _uow;
 
         public PlansController(IUOW uow)
@@ -28,10 +26,11 @@ namespace Web.Areas.Admin.Controllers
         }
 
         // GET: Plans
-        public ActionResult Index(PlanIndexViewModel vm)
+        public ActionResult Index()
         {
-            vm.Plans = _uow.Plans.All;
-            return View(vm);
+            //var plans = _uow.Plans.All;
+            var vm = (from p in _uow.Plans.AllIncluding())
+            return View(plans);
         }
 
         // GET: Plans/Details/5
@@ -53,30 +52,60 @@ namespace Web.Areas.Admin.Controllers
         public ActionResult Create()
         {
             var vm = new PlanCreateEditViewModel();
-            vm.PlanTypeSelectList = new SelectList(_uow.PlanTypes.All.Select(p => new {p.PlanTypeId, PlanTypeName = p.PlanTypeName.Translate()}).ToList(), nameof(PlanType.PlanTypeId), nameof(PlanType.PlanTypeName));
+            vm.PlanTypeSelectList = new SelectList(_uow.PlanTypes.All.Select(p => new { p.PlanTypeId, PlanTypeName = p.PlanTypeName.Translate() }).ToList(), nameof(PlanType.PlanTypeId), nameof(PlanType.PlanTypeName));
+            vm.ExerciseSelectList = new SelectList(_uow.Exercises.All, nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
+            vm.ExerciseInWorkoutList = new List<ExerciseInWorkout>();
             return View(vm);
         }
 
         // POST: Plans/Create
-                // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-                // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [
-            HttpPost]
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PlanCreateEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
                 if (vm.Plan == null) vm.Plan = new Plan();
+                if (vm.UserInPlan == null) vm.UserInPlan = new UserInPlan();
+                if (vm.WorkoutInPlan == null) vm.WorkoutInPlan = new WorkoutInPlan();
+                if (vm.Workout == null) vm.Workout = new Workout();
+                if (vm.ExerciseInWorkout == null) vm.ExerciseInWorkout = new ExerciseInWorkout();
+                //if (vm.ExerciseInWorkoutList == null) vm.ExerciseInWorkoutList = new List<ExerciseInWorkout>();
+
 
                 vm.Plan.PlanDescription = new MultiLangString(vm.PlanDescription, CultureHelper.GetCurrentNeutralUICulture(), vm.PlanDescription, nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanDescription));
                 vm.Plan.PlanInstructions = new MultiLangString(vm.PlanInstructions, CultureHelper.GetCurrentNeutralUICulture(), vm.PlanInstructions, nameof(vm.Plan) + "." + vm.Plan.PlanId + "." + nameof(vm.Plan.PlanInstructions));
 
                 _uow.Plans.Add(vm.Plan);
+                vm.UserInPlan.Plan = vm.Plan;
+                vm.UserInPlan.UserId = User.Identity.GetUserId<int>();
+                vm.UserInPlan.UserRoleInPlanId = 4; //katsetamisel jäänud hard coded 4, võib hiljem viga põhjustada 
+                _uow.UserInPlans.Add(vm.UserInPlan);
+
+                _uow.Workouts.Add(vm.Workout);
+
+                vm.WorkoutInPlan.Plan = vm.Plan;
+                vm.WorkoutInPlan.Workout = vm.Workout;
+                _uow.WorkoutInPlans.Add(vm.WorkoutInPlan);
+
+                foreach (var ex in vm.ExerciseInWorkoutList)
+                {
+                    vm.ExerciseInWorkout = new ExerciseInWorkout();
+                    vm.ExerciseInWorkout.Workout = vm.Workout;
+                    vm.ExerciseInWorkout.ExerciseId = ex.ExerciseId;
+                    vm.ExerciseInWorkout.Sets = ex.Sets;
+                    vm.ExerciseInWorkout.Tracked = false;
+                    _uow.ExerciseInWorkouts.Add(vm.ExerciseInWorkout);
+                }
+
                 _uow.Commit();
+
                 return RedirectToAction(nameof(Index));
             }
-
+            //vm.PlanTypeSelectList = new SelectList(_uow.PlanTypes.All.Select(p => new { p.PlanTypeId, PlanTypeName = p.PlanTypeName.Translate() }).ToList(), nameof(PlanType.PlanTypeId), nameof(PlanType.PlanTypeName));
+            //vm.ExerciseSelectList = new SelectList(_uow.Exercises.All, nameof(Exercise.ExerciseId), nameof(Exercise.ExerciseName));
             return View(vm);
         }
 
@@ -97,7 +126,7 @@ namespace Web.Areas.Admin.Controllers
             vm.PlanName = plan.PlanName;
             vm.PlanDescription = plan.PlanDescription.Translate();
             vm.PlanInstructions = plan.PlanInstructions.Translate();
-            vm.PlanTypeSelectList = new SelectList(_uow.PlanTypes.All, nameof(PlanType.PlanTypeId), nameof(PlanType.PlanTypeName));
+            vm.PlanTypeSelectList = new SelectList(_uow.PlanTypes.All.Select(p => new { p.PlanTypeId, PlanTypeName = p.PlanTypeName.Translate() }).ToList(), nameof(PlanType.PlanTypeId), nameof(PlanType.PlanTypeName));
             return View(vm);
         }
 

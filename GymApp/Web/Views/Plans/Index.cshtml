@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Domain.Plan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanDescription.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanInstructions.Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanType.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedAtDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedAtDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanDescription.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanInstructions.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanType.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedAtDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedAtDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlanId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlanId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlanId })
+        </td>
+    </tr>
+}
+
+</table>
