@@ -151,11 +151,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exercise name.
+        /// </summary>
+        public static string ExerciseName {
+            get {
+                return ResourceManager.GetString("ExerciseName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exercise name is too long..
         /// </summary>
         public static string ExerciseNameLengthError {
             get {
                 return ResourceManager.GetString("ExerciseNameLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets.
+        /// </summary>
+        public static string ExerciseSets {
+            get {
+                return ResourceManager.GetString("ExerciseSets", resourceCulture);
             }
         }
         
@@ -268,6 +286,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Plan.
+        /// </summary>
+        public static string Plan {
+            get {
+                return ResourceManager.GetString("Plan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan description.
+        /// </summary>
+        public static string PlanDescription {
+            get {
+                return ResourceManager.GetString("PlanDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan duration.
+        /// </summary>
+        public static string PlanDuration {
+            get {
+                return ResourceManager.GetString("PlanDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan instructions.
+        /// </summary>
+        public static string PlanInstructions {
+            get {
+                return ResourceManager.GetString("PlanInstructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan name.
+        /// </summary>
+        public static string PlanName {
+            get {
+                return ResourceManager.GetString("PlanName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan type.
+        /// </summary>
+        public static string PlanType {
+            get {
+                return ResourceManager.GetString("PlanType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rating is too high..
         /// </summary>
         public static string RatingOutOfBoundsError {
@@ -336,6 +408,15 @@ namespace Resources {
         public static string WeightOutOfBoundsError {
             get {
                 return ResourceManager.GetString("WeightOutOfBoundsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workout name.
+        /// </summary>
+        public static string WorkoutName {
+            get {
+                return ResourceManager.GetString("WorkoutName", resourceCulture);
             }
         }
         

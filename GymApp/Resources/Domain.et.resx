@@ -138,8 +138,14 @@
   <data name="DescriptionLengthError" xml:space="preserve">
     <value>Kirjelduse pikkus on vale.</value>
   </data>
+  <data name="ExerciseName" xml:space="preserve">
+    <value>Harjutuse nimi</value>
+  </data>
   <data name="ExerciseNameLengthError" xml:space="preserve">
     <value>Harjutuse nime pikkus on vale</value>
+  </data>
+  <data name="ExerciseSets" xml:space="preserve">
+    <value>Seeriad</value>
   </data>
   <data name="FirstLastName" xml:space="preserve">
     <value>Ees-, perekonnanimi</value>
@@ -177,6 +183,24 @@
   <data name="Person_Time2" xml:space="preserve">
     <value>Kellaaeg</value>
   </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Kava</value>
+  </data>
+  <data name="PlanDescription" xml:space="preserve">
+    <value>Kava kirjeldus</value>
+  </data>
+  <data name="PlanDuration" xml:space="preserve">
+    <value>Kava kestvus</value>
+  </data>
+  <data name="PlanInstructions" xml:space="preserve">
+    <value>Kava juhend</value>
+  </data>
+  <data name="PlanName" xml:space="preserve">
+    <value>Kava nimi</value>
+  </data>
+  <data name="PlanType" xml:space="preserve">
+    <value>Kava tüüp</value>
+  </data>
   <data name="RatingOutOfBoundsError" xml:space="preserve">
     <value>Hinne piiridest väljas.</value>
   </data>
@@ -200,6 +224,9 @@
   </data>
   <data name="WeightOutOfBoundsError" xml:space="preserve">
     <value>Raskus on piiridest väljas</value>
+  </data>
+  <data name="WorkoutName" xml:space="preserve">
+    <value>Treeningu nimi</value>
   </data>
   <data name="WorkoutNameLengthError" xml:space="preserve">
     <value>Treeningu nimi on liiga pikk.</value>

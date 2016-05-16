@@ -194,6 +194,16 @@ namespace Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             _uow.Plans.Delete(id);
+            var uip = _uow.UserInPlans.All.Where(x => x.PlanId == id);
+            foreach (var item in uip)
+            {
+                _uow.UserInPlans.Delete(item.UserInPlanId);
+            }
+            var wip = _uow.WorkoutInPlans.All.Where(x => x.PlanId == id);
+            foreach (var item in wip)
+            {
+                _uow.WorkoutInPlans.Delete(item.WorkoutInPlanId);
+            }
             _uow.Commit();
             return RedirectToAction(nameof(Index));
         }

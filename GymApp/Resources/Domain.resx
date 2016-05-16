@@ -213,4 +213,31 @@
   <data name="WorkoutNameLengthError" xml:space="preserve">
     <value>Exercise name is too long.</value>
   </data>
+  <data name="ExerciseName" xml:space="preserve">
+    <value>Exercise name</value>
+  </data>
+  <data name="ExerciseSets" xml:space="preserve">
+    <value>Sets</value>
+  </data>
+  <data name="Plan" xml:space="preserve">
+    <value>Plan</value>
+  </data>
+  <data name="PlanDescription" xml:space="preserve">
+    <value>Plan description</value>
+  </data>
+  <data name="PlanDuration" xml:space="preserve">
+    <value>Plan duration</value>
+  </data>
+  <data name="PlanInstructions" xml:space="preserve">
+    <value>Plan instructions</value>
+  </data>
+  <data name="PlanName" xml:space="preserve">
+    <value>Plan name</value>
+  </data>
+  <data name="PlanType" xml:space="preserve">
+    <value>Plan type</value>
+  </data>
+  <data name="WorkoutName" xml:space="preserve">
+    <value>Workout name</value>
+  </data>
 </root>

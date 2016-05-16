@@ -14,6 +14,7 @@ namespace Domain
         [Required]
         [MaxLength(128, ErrorMessageResourceName = "WorkoutNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
         [MinLength(1, ErrorMessageResourceName = "WorkoutNameLengthError", ErrorMessageResourceType = typeof(Resources.Domain))]
+        [Display(Name = "WorkoutName", ResourceType = typeof(Resources.Domain))]
         public string WorkoutName { get; set; }
 
         [DataType(DataType.Date)]

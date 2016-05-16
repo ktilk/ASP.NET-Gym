@@ -15,6 +15,7 @@ namespace Domain
         public int PlanTypeId { get; set; }
 
         //public string PlanTypeName { get; set; }
+        [Display(Name = "PlanType", ResourceType = typeof(Resources.Domain))]
         [ForeignKey(nameof(PlanTypeName))]
         public int? PlanTypeNameId { get; set; }
         public virtual MultiLangString PlanTypeName { get; set; }

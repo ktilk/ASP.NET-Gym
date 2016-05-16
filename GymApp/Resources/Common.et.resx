@@ -195,4 +195,25 @@
   <data name="Workouts" xml:space="preserve">
     <value>Trennid</value>
   </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Tagasi nimekirja</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Loo uus</value>
+  </data>
+  <data name="Menu_All_Plans" xml:space="preserve">
+    <value>Kõik kavad</value>
+  </data>
+  <data name="Menu_Create_A_Plan" xml:space="preserve">
+    <value>Loo uus kava</value>
+  </data>
+  <data name="Menu_Training" xml:space="preserve">
+    <value>Treening</value>
+  </data>
+  <data name="SelectValue" xml:space="preserve">
+    <value>--- Vali ---</value>
+  </data>
+  <data name="MyContacts" xml:space="preserve">
+    <value>Minu kontaktid</value>
+  </data>
 </root>

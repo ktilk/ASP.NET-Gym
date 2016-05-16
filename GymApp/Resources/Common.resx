@@ -195,4 +195,25 @@
   <data name="Workouts" xml:space="preserve">
     <value>Workouts</value>
   </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to list</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Menu_All_Plans" xml:space="preserve">
+    <value>All plans</value>
+  </data>
+  <data name="Menu_Create_A_Plan" xml:space="preserve">
+    <value>Create a plan</value>
+  </data>
+  <data name="Menu_Training" xml:space="preserve">
+    <value>Training</value>
+  </data>
+  <data name="SelectValue" xml:space="preserve">
+    <value>--- Select ---</value>
+  </data>
+  <data name="MyContacts" xml:space="preserve">
+    <value>My contacts</value>
+  </data>
 </root>

@@ -1,17 +1,17 @@
 ﻿@model Web.ViewModels.PlanCreateEditViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @Resources.Manage.Index_Create;
 }
 
-<h2>Create</h2>
+<h2>@Resources.Common.Create</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Plan</h4>
+        <h4>@Resources.Domain.Plan</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -19,12 +19,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="@Resources.Manage.Index_Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Common.BackToList, "Index")
 </div>

@@ -10,31 +10,31 @@
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.PlanDescription, "PlanDescriptionId", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.PlanDescription, Resources.Domain.PlanDescription, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.TextAreaFor(model => model.PlanDescription, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.TextAreaFor(model => model.PlanDescription, new { @class = "form-control", @cols = "50", @rows = "4" })
         @Html.ValidationMessageFor(model => model.PlanDescription, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.PlanInstructions, "PlanInstructionsId", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.PlanInstructions, Resources.Domain.PlanInstructions, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.TextAreaFor(model => model.PlanInstructions, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.TextAreaFor(model => model.PlanInstructions, new { @class = "form-control", @cols = "50", @rows = "4" })
         @Html.ValidationMessageFor(model => model.PlanInstructions, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Plan.PlanTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.LabelFor(model => model.Plan.PlanTypeId, Resources.Domain.PlanType, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-        @Html.DropDownListFor(model => model.Plan.PlanTypeId, Model.PlanTypeSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownListFor(model => model.Plan.PlanTypeId, Model.PlanTypeSelectList, Resources.Common.SelectValue, htmlAttributes: new { @class = "form-control" })
         @Html.ValidationMessageFor(model => model.Plan.PlanTypeId, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Plan.Duration, htmlAttributes: new {@class = "control-label col-md-2"})
+    @Html.LabelFor(model => model.Plan.Duration, Resources.Domain.PlanDuration, htmlAttributes: new {@class = "control-label col-md-2"})
     <div class="col-md-10">
         @Html.EditorFor(model => model.Plan.Duration, new {htmlAttributes = new {@class = "form-control"}})
         @Html.ValidationMessageFor(model => model.Plan.Duration, "", new {@class = "text-danger"})
@@ -42,7 +42,7 @@
 </div>
 
 <div class="form-group">
-    @Html.LabelFor(model => model.Workout.WorkoutName, htmlAttributes: new {@class = "control-label col-md-2"})
+    @Html.LabelFor(model => model.Workout.WorkoutName, Resources.Domain.WorkoutName, htmlAttributes: new {@class = "control-label col-md-2"})
     <div class="col-md-10">
         @Html.EditorFor(model => model.Workout.WorkoutName, new {htmlAttributes = new {@class = "form-control"}})
         @Html.ValidationMessageFor(model => model.Workout.WorkoutName, "", new {@class = "text-danger"})
@@ -52,13 +52,13 @@
     {
         Model.ExerciseInWorkoutList.Add(new ExerciseInWorkout());
         <div class="form-group">
-            @Html.LabelFor(model => model.ExerciseInWorkoutList[i].ExerciseId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-7">
-                @Html.DropDownListFor(model => model.ExerciseInWorkoutList[i].ExerciseId, Model.ExerciseSelectList, "-- Select --", htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(model => model.ExerciseInWorkoutList[i].ExerciseId, Resources.Domain.ExerciseName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.ExerciseInWorkoutList[i].ExerciseId, Model.ExerciseSelectList, Resources.Common.SelectValue, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ExerciseInWorkoutList[i].ExerciseId, "", new { @class = "text-danger" })
             </div>
-            @Html.LabelFor(model => model.ExerciseInWorkoutList[i].Sets, htmlAttributes: new { @class = "control-label col-md-1" })
-            <div class="col-md-2">
+            @Html.LabelFor(model => model.ExerciseInWorkoutList[i].Sets, Resources.Domain.ExerciseSets, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-1 col-md-offset-0">
                 @Html.EditorFor(model => model.ExerciseInWorkoutList[i].Sets, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ExerciseInWorkoutList[i].Sets, "", new { @class = "text-danger" })
             </div>

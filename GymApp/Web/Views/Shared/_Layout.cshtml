@@ -58,7 +58,7 @@
                     <li class="active">
                         <a class="" href="@Url.Action("Index", "Home", new {area = ""})">
                             <i class="icon_house_alt"></i>
-                            <span>Home</span>
+                            <span>@Resources.Common.Home</span>
                         </a>
                     </li>
                     @if (Request.IsAuthenticated)
@@ -66,9 +66,13 @@
                         <li class="sub-menu">
                             <a href="javascript:;" class="">
                                 <i class="icon_document_alt"></i>
-                                <span>Training</span>
+                                <span>@Resources.Common.Menu_Training</span>
                                 <span class="menu-arrow arrow_carrot-right"></span>
                             </a>
+                            <ul class="sub">
+                                <li><a class="" href="@Url.Action("Index", "Plans", new {area = ""}, null)">@Resources.Common.Menu_All_Plans</a></li>
+                                <li><a class="" href="@Url.Action("Create", "Plans", new {area = ""}, null)">@Resources.Common.Menu_Create_A_Plan</a></li>
+                            </ul>
                         </li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
@@ -120,18 +124,6 @@
         <section id="main-content">
             <section class="wrapper">
                 <!--overview start-->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="page-header">
-                            <i class="fa fa-laptop"></i> Dashboard
-                        </h3>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-home"></i><a href="#">Home</a></li>
-                            <li><i class="fa fa-laptop"></i>Dashboard</li>
-                        </ol>
-                    </div>
-                </div>
-
                 @RenderBody()
                 <hr />
                 <footer>

@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back to list.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -84,6 +93,15 @@ namespace Resources {
         public static string Contacts {
             get {
                 return ResourceManager.GetString("Contacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
             }
         }
         
@@ -214,6 +232,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All plans.
+        /// </summary>
+        public static string Menu_All_Plans {
+            get {
+                return ResourceManager.GetString("Menu_All_Plans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a plan.
+        /// </summary>
+        public static string Menu_Create_A_Plan {
+            get {
+                return ResourceManager.GetString("Menu_Create_A_Plan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Training.
+        /// </summary>
+        public static string Menu_Training {
+            get {
+                return ResourceManager.GetString("Menu_Training", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My contacts.
+        /// </summary>
+        public static string MyContacts {
+            get {
+                return ResourceManager.GetString("MyContacts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string Next {
@@ -273,6 +327,15 @@ namespace Resources {
         public static string RegisterAsNew {
             get {
                 return ResourceManager.GetString("RegisterAsNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to --- Select ---.
+        /// </summary>
+        public static string SelectValue {
+            get {
+                return ResourceManager.GetString("SelectValue", resourceCulture);
             }
         }
         
